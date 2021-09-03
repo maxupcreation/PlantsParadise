@@ -9,14 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-   
-    
+ 
     var body: some View {
        
             VStack {
                 Button("add  Item") {
                     Label("Add Item", systemImage: "plus")
                 }
+                
+                Button("Plantes") {}
                 .padding()
             }
     }
