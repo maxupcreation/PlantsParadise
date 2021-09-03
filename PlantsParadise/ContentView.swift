@@ -16,10 +16,6 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    
-    
-    
-
     var body: some View {
         List {
             ForEach(items) { item in
@@ -32,9 +28,15 @@ struct ContentView: View {
             EditButton()
             #endif
 
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
+            VStack {
+                Button(action: addItem) {
+                    Label("Add Item", systemImage: "plus")
+                
+                    Button("Plus") {
+                        
+                    }
+                }
+                }
         }
     }
 
