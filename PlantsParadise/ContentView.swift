@@ -32,9 +32,6 @@ struct ContentView: View {
                 Button(action: addItem) {
                     Label("Add Item", systemImage: "plus")
                     
-                    Button("Plus") {
-                        
-                    }
                 }
             }
         }
