@@ -12,19 +12,29 @@ struct ContentView: View {
  
     var body: some View {
        
-            VStack {
-                Button("add  Item") {
-                    Label("Add Item", systemImage: "plus")
-                }
-                
-                Button("Plantes") {}
+        let blueUIColor = UIColor(named: "BlueParadise")!
+        let magentaUIColor = UIColor(named: "MagentaParadise")!
+      
+                Button("Ajouter une plante") {}
                 .padding()
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
+                    )
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
             }
     }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+extension Color {
+    static let ui = Color.UI()
+    
+    struct UI {
+         let yellow = Color("yellow")
     }
 }
