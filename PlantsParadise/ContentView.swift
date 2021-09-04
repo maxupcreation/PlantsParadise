@@ -16,28 +16,46 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
+            
+            VStack {
+            VStack {
+                List{
+                    
+                }.cornerRadius(8
+                )
+            }
+        
+            
             VStack{
-                HStack{
+               
+             
+                Button("Ajouter une plante") {}
+                .padding()
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
+                )
+                .cornerRadius(8)
+                .foregroundColor(.white)
+               
+            }
+            .navigationBarItems(leading:
+                                    HStack{
                 Image("logo")
                     .resizable()
                     .frame(width: 50, height: 50)
-                Text("Plants Paradise")
-                }
-                Spacer()
+                    .font(.largeTitle)
+                    .navigationTitle("Plants Paradise")
+                    
                 
-                
-                Button("Ajouter une plante") {}
-                    .padding()
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
             }
+            )
+        
+        
             
         }.padding()
-        .navigationTitle("Plants Paradise")
-        .navigationBarItems(leading: Image("logo"))
+       
+        }
+     
     }
     
 }
