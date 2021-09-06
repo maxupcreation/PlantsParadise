@@ -36,6 +36,7 @@ struct ContentView: View {
                 )
                 .cornerRadius(8)
                 .foregroundColor(.white)
+                
                
             }
             .navigationBarItems(leading:
@@ -44,14 +45,19 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 50, height: 50)
                     .font(.largeTitle)
-                    .navigationTitle("Plants Paradise")
-                    
-                
+                   
+                    .navigationBarTitleDisplayMode(.inline)
+                           .toolbar { // <2>
+                               ToolbarItem(placement: .principal) { // <3>
+                                   VStack {
+                                       Text("Plants Paradise") .font(Font.custom("Didot",size:18))
+                                           
+                                   }
+                               }
+                           }
+                  
             }
             )
-        
-        
-            
         }.padding()
        
         }
