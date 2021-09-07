@@ -12,6 +12,7 @@ struct ContentView: View {
     
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
+    @State private var isPresentedBool = false
     
     var body: some View {
         
@@ -25,7 +26,13 @@ struct ContentView: View {
                     )
                 }
                 VStack{
-                    Button("Ajouter une plante") {}
+                    Button("Ajouter une plante") {
+                        isPresentedBool.toggle()
+                  
+                    }.sheet(isPresented: $isPresentedBool) {
+                        AddPlantsSwiftUIView()
+                                 }
+                    
                     .padding()
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)

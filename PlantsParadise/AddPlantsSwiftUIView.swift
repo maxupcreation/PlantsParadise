@@ -16,34 +16,37 @@ struct AddPlantsSwiftUIView: View {
     
     
     @State private var day = 1
-
+    
     
     var body: some View {
+     
         VStack {
-            Button("Prendre une photo") {
-                           self.sourceType = .camera
-                           self.isImagePickerDisplay.toggle()
-                       }.padding()
-        TextField("Nom de la plante",text: $plantName, onCommit:  {
-        }).padding()
-            VStack(alignment: .center) {
-                Text("Rappel arrosage")
-          
-                .padding(.leading, 15.0)
+                Button("Prendre une photo") {
+                    self.sourceType = .camera
+                    self.isImagePickerDisplay.toggle()
+                }
+                .padding()
                 .font(Font.system(size: 20))
-            }.padding()
-            ///-----------------------
-            Stepper("", onIncrement: {
-                day += 1
-                       }, onDecrement: {
-                           day -= 1
-                       })
-                
-                
-            ///------------------------
-                       Text("Tout les \(day) jours")
-                .font(Font.system(size: 30))
-    
+                ///-----------------------
+                TextField("Nom de la plante",text: $plantName, onCommit:  {
+                })
+                ///-----------------------
+                .padding()
+            HStack {
+                    Text("Rappel arrosage")
+                        .padding(.leading, 15.0)
+                        .font(Font.system(size: 20))
+                ///-----------------------
+                Stepper("", onIncrement: {
+                    day += 1
+                }, onDecrement: {
+                    day -= 1
+                })
+                    .padding()
+            }
+                ///------------------------
+                Text("Tout les \(day) jours")
+                    .font(Font.system(size: 30))
         }
         
     }
