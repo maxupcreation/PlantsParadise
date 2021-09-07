@@ -94,6 +94,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7BEFFADE26E7B7B400007972 /* Core data */ = {
+			isa = PBXGroup;
+			children = (
+				9C8253A326E246C5006BAC0A /* PlantsParadise.xcdatamodeld */,
+				9C8253A126E246C5006BAC0A /* Persistence.swift */,
+			);
+			path = "Core data";
+			sourceTree = "<group>";
+		};
 		9C82538C26E246C4006BAC0A = {
 			isa = PBXGroup;
 			children = (
@@ -117,14 +126,13 @@
 		9C82539726E246C4006BAC0A /* PlantsParadise */ = {
 			isa = PBXGroup;
 			children = (
-				9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */,
 				9C82539A26E246C4006BAC0A /* ContentView.swift */,
+				9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */,
+				7BEFFADE26E7B7B400007972 /* Core data */,
 				7BEFFADD26E7B34C00007972 /* Views */,
 				9C82539C26E246C5006BAC0A /* Assets.xcassets */,
 				9C3B2CC426E66FED002A3B33 /*  Didot.ttc */,
-				9C8253A126E246C5006BAC0A /* Persistence.swift */,
 				9C8253A626E246C5006BAC0A /* Info.plist */,
-				9C8253A326E246C5006BAC0A /* PlantsParadise.xcdatamodeld */,
 				9C82539E26E246C5006BAC0A /* Preview Content */,
 				9C185E8226E78AAF00B80512 /* ImagePickerView.swift */,
 				9C185E8426E78C0200B80512 /* Coordinator.swift */,

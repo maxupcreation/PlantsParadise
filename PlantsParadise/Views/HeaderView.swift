@@ -11,8 +11,8 @@ struct HeaderView: View {
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     @State private var isPresentedBool = false
+   
     var body: some View {
-
     NavigationView {
         VStack {
             VStack {
@@ -45,7 +45,9 @@ struct HeaderView: View {
                                             .toolbar { // <2>
                                                 ToolbarItem(placement: .navigation) { // <3>
                                                     VStack {
-                                                        Text("Plants Paradise") .font(Font.custom("Didot",size:18))
+                                                        Text("Plants Paradise")
+                                                            .font(Font.custom("Didot",size:18))
+                                                            .bold()
                                                     }
                                                 }
                                             }
