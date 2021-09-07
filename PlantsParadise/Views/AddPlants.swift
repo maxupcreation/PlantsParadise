@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddPlantsSwiftUIView: View {
+struct AddPlants: View {
     @State private var plantName:String = ""
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -54,6 +54,6 @@ struct AddPlantsSwiftUIView: View {
 
 struct AddPlantsSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlantsSwiftUIView()
+        AddPlants()
     }
 }

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C185E8126E75FAE00B80512 /* AddPlantsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlantsSwiftUIView.swift */; };
+		7BEFFADC26E7B2C100007972 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFFADB26E7B2C100007972 /* HeaderView.swift */; };
+		9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlants.swift */; };
 		9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8226E78AAF00B80512 /* ImagePickerView.swift */; };
 		9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8426E78C0200B80512 /* Coordinator.swift */; };
 		9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */; };
@@ -38,7 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C185E8026E75FAE00B80512 /* AddPlantsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantsSwiftUIView.swift; sourceTree = "<group>"; };
+		7BEFFADB26E7B2C100007972 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		9C185E8026E75FAE00B80512 /* AddPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlants.swift; sourceTree = "<group>"; };
 		9C185E8226E78AAF00B80512 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		9C185E8426E78C0200B80512 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		9C3B2CC426E66FED002A3B33 /*  Didot.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = " Didot.ttc"; sourceTree = "<group>"; };
@@ -83,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BEFFADD26E7B34C00007972 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7BEFFADB26E7B2C100007972 /* HeaderView.swift */,
+				9C185E8026E75FAE00B80512 /* AddPlants.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9C82538C26E246C4006BAC0A = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +119,7 @@
 			children = (
 				9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */,
 				9C82539A26E246C4006BAC0A /* ContentView.swift */,
-				9C185E8026E75FAE00B80512 /* AddPlantsSwiftUIView.swift */,
+				7BEFFADD26E7B34C00007972 /* Views */,
 				9C82539C26E246C5006BAC0A /* Assets.xcassets */,
 				9C3B2CC426E66FED002A3B33 /*  Didot.ttc */,
 				9C8253A126E246C5006BAC0A /* Persistence.swift */,
@@ -278,11 +289,12 @@
 			files = (
 				9C8253A226E246C5006BAC0A /* Persistence.swift in Sources */,
 				9C82539B26E246C4006BAC0A /* ContentView.swift in Sources */,
-				9C185E8126E75FAE00B80512 /* AddPlantsSwiftUIView.swift in Sources */,
+				9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */,
 				9C8253A526E246C5006BAC0A /* PlantsParadise.xcdatamodeld in Sources */,
 				9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */,
 				9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */,
 				9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */,
+				7BEFFADC26E7B2C100007972 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
