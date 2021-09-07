@@ -18,50 +18,42 @@ struct ContentView: View {
         NavigationView {
             
             VStack {
-            VStack {
-                List{
+                VStack {
+                    List{
+                        
+                    }.cornerRadius(8
+                    )
+                }
+                VStack{
+                    Button("Ajouter une plante") {}
+                    .padding()
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
+                    )
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
+                }
+                .navigationBarItems(leading:
+                                        HStack{
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .font(.largeTitle)
                     
-                }.cornerRadius(8
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar { // <2>
+                            ToolbarItem(placement: .navigation) { // <3>
+                                VStack {
+                                    Text("Plants Paradise") .font(Font.custom("Didot",size:18))
+                                }
+                            }
+                        }
+                }
                 )
-            }
-        
+            }.padding()
             
-            VStack{
-               
-             
-                Button("Ajouter une plante") {}
-                .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor),Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                )
-                .cornerRadius(8)
-                .foregroundColor(.white)
-                
-               
-            }
-            .navigationBarItems(leading:
-                                    HStack{
-                Image("logo")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .font(.largeTitle)
-                   
-                    .navigationBarTitleDisplayMode(.inline)
-                           .toolbar { // <2>
-                               ToolbarItem(placement: .principal) { // <3>
-                                   VStack {
-                                       Text("Plants Paradise") .font(Font.custom("Didot",size:18))
-                                           
-                                   }
-                               }
-                           }
-                  
-            }
-            )
-        }.padding()
-       
         }
-     
+        
     }
     
 }

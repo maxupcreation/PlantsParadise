@@ -50,5 +50,7 @@
 	<array>
 		<string>Didot.ttc</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Souhaitez-vous utiliser l&apos;appareil photo ?</string>
 </dict>
 </plist>
