@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddPlants: View {
     @State private var plantName:String = ""
-    
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
@@ -48,7 +47,6 @@ struct AddPlants: View {
                 Text("Tout les \(day) jours")
                     .font(Font.system(size: 30))
         }
-        
     }
 }
 

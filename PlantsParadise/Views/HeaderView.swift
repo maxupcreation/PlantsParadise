@@ -14,17 +14,13 @@ struct HeaderView: View {
     
     var body: some View {
         NavigationView {
-                VStack {
-                    List{
-                        
-                    }.cornerRadius(8)
+            VStack {
+                List{
+                }.cornerRadius(8)
                 VStack{
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
-                    }.sheet(isPresented: $isPresentedBool) {
-                        AddPlants()
                     }
-                    
                     .padding()
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
@@ -34,22 +30,25 @@ struct HeaderView: View {
                 }
                 .navigationBarItems(leading:
                                         HStack {
-                                            Image("logo")
-                                                .resizable()
-                                                .frame(width: 60, height: 60)
-                                                .font(.largeTitle)
-                                                .navigationBarTitleDisplayMode(.automatic)
-//                                                .toolbar { // <2>
-//                                                    ToolbarItem(placement: .navigation) { // <3>
-//                                                        VStack {
-//
-//                                                        }
-//                                                    }
-//                                                }
-                                            Text("   Plants Paradise")
-                                                .font(Font.custom("Didot", size: 30))
-                                        })
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .font(.largeTitle)
+                        .navigationBarTitleDisplayMode(.automatic)
+                    //                                                .toolbar { // <2>
+                    //                                                    ToolbarItem(placement: .navigation) { // <3>
+                    //                                                        VStack {
+                    //
+                    //                                                        }
+                    //                                                    }
+                    //                                                }
+                    Text("   Plants Paradise")
+                        .font(Font.custom("Didot", size: 30))
+                })
             }.padding()
+        }
+        .sheet(isPresented: $isPresentedBool) {
+            AddPlants()
         }
     }
     
