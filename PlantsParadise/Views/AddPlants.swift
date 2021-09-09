@@ -57,9 +57,14 @@ struct AddPlants: View {
                 
                     
                 ///------------------------
-                Text("Tout les \(day) jours")
+                    Text("Tout les \(day) jours")
                     .font(Font.system(size: 30))
+                Button("-") { }
+            }
         }
+        .padding()
+        
+        
     }
 }
 
