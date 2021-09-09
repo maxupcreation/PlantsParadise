@@ -28,13 +28,16 @@ struct AddPlants: View {
                 .font(Font.system(size: 20))
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
+                    
                 })
                 ///-----------------------
                 .padding()
             HStack {
                     Text("Rappel arrosage")
-                        .padding(.leading, 15.0)
                         .font(Font.system(size: 20))
+                        .padding()
+                        .padding()
+
                 ///-----------------------
                 Stepper("", onIncrement: {
                     day += 1
