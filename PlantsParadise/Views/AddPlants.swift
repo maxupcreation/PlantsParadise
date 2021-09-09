@@ -25,12 +25,17 @@ struct AddPlants: View {
         NavigationView {
             VStack {
                 Button("Prendre une photo") {
-                    self.isImagePickerDisplay.toggle()
                     self.sourceType = .camera
+                    self.isImagePickerDisplay.toggle()
+                    
                 }
-                .padding()
+                .frame(width: 100, height: 200, alignment: .top)
+                .background(Image(uiImage: selectedImage ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(8))
                 .font(Font.system(size: 20))
-                
+             Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
                 })
@@ -67,7 +72,7 @@ struct AddPlants: View {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
     }
-        
+    
 }
 
 struct AddPlantsSwiftUIView_Previews: PreviewProvider {
