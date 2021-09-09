@@ -39,12 +39,12 @@ struct AddPlants: View {
                         .padding()
 
                 ///-----------------------
-                Stepper("", onIncrement: {
-                    day += 1
-                }, onDecrement: {
-                    day -= 1
-                })
-                    .padding()
+//                Stepper("", onIncrement: {
+//                    day += 1
+//                }, onDecrement: {
+//                    day -= 1
+//                })
+//                    .padding()
             }
                 ///------------------------
                 Text("Tout les \(day) jours")
