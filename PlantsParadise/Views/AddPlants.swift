@@ -46,6 +46,16 @@ struct AddPlants: View {
 //                })
 //                    .padding()
             }
+            
+            HStack {
+                Button("+") {
+                    
+                }
+                
+                
+            
+                
+                    
                 ///------------------------
                 Text("Tout les \(day) jours")
                     .font(Font.system(size: 30))
