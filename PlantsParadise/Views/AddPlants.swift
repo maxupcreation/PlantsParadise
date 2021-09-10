@@ -15,27 +15,32 @@ struct AddPlants: View {
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    
-    
+    @State var textCameraButton = "Prendre une photo"
+    @State var textHiddenState = true
     @State private var day = 1
-    
+    @State private var opacityButton = 1
     
     var body: some View {
         
         NavigationView {
+            
             VStack {
-                Button("Prendre une photo") {
+                Button(textCameraButton) {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                     
                 }
-                .frame(width: 100, height: 200, alignment: .top)
+                .foregroundColor(.black)
                 .background(Image(uiImage: selectedImage ?? UIImage())
                                 .resizable()
+                                .frame(width: 200, height: 280, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-                                .cornerRadius(8))
+                            
+                                .cornerRadius(50))
                 .font(Font.system(size: 20))
-             Spacer()
+                .opacity(Double(opacityButton))
+                
+                Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
                 })
@@ -52,6 +57,7 @@ struct AddPlants: View {
                         day -= 1
                     })
                         .padding()
+                    
                 }
                 ///------------------------
                 Text("Tout les \(day) jours")
@@ -66,14 +72,16 @@ struct AddPlants: View {
                 )
                 .foregroundColor(.white)
                 .cornerRadius(8)
-            }
+            }.padding(20)
         }
         .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
+        .padding()
     }
-    
 }
+
+
 
 struct AddPlantsSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
