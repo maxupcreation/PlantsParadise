@@ -28,7 +28,7 @@ struct AddPlants: View {
                 .font(Font.system(size: 20))
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
-                    
+
                 })
                 ///-----------------------
                 .padding()
@@ -48,8 +48,9 @@ struct AddPlants: View {
             }
             
             HStack {
-                Button("+") {
-                    
+                Button("-") {
+                    guard day > 1 else { return }
+                    day -= 1
                 }
                 
                 
