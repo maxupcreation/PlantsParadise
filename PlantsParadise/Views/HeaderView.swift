@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     @State private var isPresentedBool = false
@@ -51,6 +52,7 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
+      
         HeaderView()
     }
 }
