@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddPlants: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     ///-----------------------
@@ -28,7 +30,6 @@ struct AddPlants: View {
                 Button(textCameraButton) {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
-                    
                 }
                 .foregroundColor(.black)
                 .background(Image(uiImage: selectedImage ?? UIImage())
@@ -76,11 +77,18 @@ struct AddPlants: View {
                 .background(Color(red: 0, green: 0, blue: 0.4))
                 .clipShape(Circle())
             }
-            
+                Button("Ajouter la plante") {
+                action: do { self.presentationMode.wrappedValue.dismiss() }
+                }
+                .padding()
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
+                )
+                .cornerRadius(8)
+                .foregroundColor(.white)
         }
         .padding()
-        
-        
+
     }
 }
 
