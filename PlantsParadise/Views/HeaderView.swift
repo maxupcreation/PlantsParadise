@@ -35,13 +35,7 @@ struct HeaderView: View {
                         .frame(width: 60, height: 60)
                         .font(.largeTitle)
                         .navigationBarTitleDisplayMode(.automatic)
-                    //                                                .toolbar { // <2>
-                    //                                                    ToolbarItem(placement: .navigation) { // <3>
-                    //                                                        VStack {
-                    //
-                    //                                                        }
-                    //                                                    }
-                    //                                                }
+                   
                     Text("   Plants Paradise")
                         .font(Font.custom("Didot", size: 30))
                 })

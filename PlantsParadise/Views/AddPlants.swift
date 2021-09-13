@@ -43,41 +43,50 @@ struct AddPlants: View {
                 Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
+
                 })
                 ///-----------------------
                     .padding()
                 HStack {
                     Text("Rappel arrosage")
-                        .padding(.leading, 15.0)
                         .font(Font.system(size: 20))
-                    ///-----------------------
-                    Stepper("", onIncrement: {
-                        day += 1
-                    }, onDecrement: {
-                        day -= 1
-                    })
                         .padding()
-                    
-                }
-                ///------------------------
-                Text("Tout les \(day) jours")
-                    .font(Font.system(size: 30))
-                ///------------------------
-                Button("Ajouter une plante") {
-                    
+                        .padding()
+
+                ///-----------------------
+//                Stepper("", onIncrement: {
+//                    day += 1
+//                }, onDecrement: {
+//                    day -= 1
+//                })
+//                    .padding()
+            }
+            
+            HStack {
+                Button("-") {
+                    guard day > 1 else { return }
+                    day -= 1
                 }
                 .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                )
-                .foregroundColor(.white)
-                .cornerRadius(8)
-            }.padding(20)
-        }
-        .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                .background(Color(red: 0, green: 0, blue: 0.4))
+                .clipShape(Circle())
+      
+                ///------------------------
+                    Text("Tout les \(day) jours")
+                    .font(Font.system(size: 30))
+                
+                Button("+") {
+                    day += 1
+                }
+                .padding()
+                .background(Color(red: 0, green: 0, blue: 0.4))
+                .clipShape(Circle())
+            }
+            
         }
         .padding()
+        
+        
     }
 }
 
