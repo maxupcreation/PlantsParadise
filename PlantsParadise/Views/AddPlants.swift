@@ -40,6 +40,7 @@ struct AddPlants: View {
                 .font(Font.system(size: 20))
                 .opacity(Double(opacityButton))
                 
+                
                 Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
@@ -53,13 +54,6 @@ struct AddPlants: View {
                         .padding()
                         .padding()
 
-                ///-----------------------
-//                Stepper("", onIncrement: {
-//                    day += 1
-//                }, onDecrement: {
-//                    day -= 1
-//                })
-//                    .padding()
             }
             
             HStack {
@@ -96,4 +90,5 @@ struct AddPlantsSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         AddPlants()
     }
+}
 }
