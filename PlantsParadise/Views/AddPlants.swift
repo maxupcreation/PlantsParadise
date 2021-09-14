@@ -34,69 +34,70 @@ struct AddPlants: View {
                 .foregroundColor(.black)
                 .background(Image(uiImage: selectedImage ?? UIImage())
                                 .resizable()
-                                .frame(width: 200, height: 280, alignment: .center)
+                                .frame(width: 200, height: 260, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-                            
+                                
                                 .cornerRadius(50))
                 .font(Font.system(size: 20))
                 .opacity(Double(opacityButton))
-                
+                .sheet(isPresented: self.$isImagePickerDisplay) {
+                            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                }
                 
                 Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
-
+                    
                 })
                 ///-----------------------
-                    .padding()
+                .padding()
                 HStack {
                     Text("Rappel arrosage")
                         .font(Font.system(size: 20))
                         .padding()
                         .padding()
-
-            }
-            
-            HStack {
-                Button("-") {
-                    guard day > 1 else { return }
-                    day -= 1
+                    
                 }
-                .padding()
-                .background(Color(red: 0, green: 0, blue: 0.4))
-                .clipShape(Circle())
-      
-                ///------------------------
-                    Text("Tout les \(day) jours")
-                    .font(Font.system(size: 30))
                 
-                Button("+") {
-                    day += 1
+                HStack {
+                    Button("-") {
+                        guard day > 1 else { return }
+                        day -= 1
+                    }
+                    .padding()
+                    .background(Color(red: 0, green: 0, blue: 0.4))
+                    .clipShape(Circle())
+                    
+                    ///------------------------
+                    Text("Tout les \(day) jours")
+                        .font(Font.system(size: 30))
+                    
+                    Button("+") {
+                        day += 1
+                    }
+                    .padding()
+                    .background(Color(red: 0, green: 0, blue: 0.4))
+                    .clipShape(Circle())
                 }
-                .padding()
-                .background(Color(red: 0, green: 0, blue: 0.4))
-                .clipShape(Circle())
-            }
                 Button("Ajouter la plante") {
-                action: do { self.presentationMode.wrappedValue.dismiss() }
+                    action: do { self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
                 .padding()
                 .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                )
+                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom))
                 .cornerRadius(8)
                 .foregroundColor(.white)
+            }
+            .padding()
         }
-        .padding()
-
     }
-}
-
-
-
-struct AddPlantsSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPlants()
+    
+    
+    
+    struct AddPlantsSwiftUIView_Previews: PreviewProvider {
+        static var previews: some View {
+            AddPlants()
+        }
     }
-}
 }

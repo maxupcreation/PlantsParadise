@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Souhaitez-vous utiliser l'appareil photo ?</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Didot.ttc</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -46,11 +52,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Didot.ttc</string>
-	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Souhaitez-vous utiliser l&apos;appareil photo ?</string>
 </dict>
 </plist>
