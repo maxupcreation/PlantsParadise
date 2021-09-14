@@ -14,14 +14,6 @@ struct ContentView: View {
     }
 }
 
-extension Color {
-    static let ui = Color.UI()
-    struct UI {
-        let yellow = Color("yellow")
-    }
-}
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
