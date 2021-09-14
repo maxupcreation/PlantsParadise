@@ -17,8 +17,8 @@ struct AddPlants: View {
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    @State var textCameraButton = "Prendre une photo"
-    @State var textHiddenState = true
+    @State private var textCameraButton = "Prendre une photo"
+    @State private var textHiddenState = true
     @State private var day = 1
     @State private var opacityButton = 1
     
