@@ -10,6 +10,14 @@ import SwiftUI
 struct AddPlants: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+        entity: Plants.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Plants.name, ascending: true)],
+        predicate: NSPredicate(format: "name == %@", "name")
+    ) var items: FetchedResults<Plants>
+    
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     ///-----------------------
@@ -79,7 +87,14 @@ struct AddPlants: View {
                     .clipShape(Circle())
                 }
                 Button("Ajouter la plante") {
-                    action: do { self.presentationMode.wrappedValue.dismiss()
+                    action: do {
+                        let data = Plants(context: managedObjectContext)
+                        data.name = plantName
+                        data.picture = selectedImage?.pngData()
+                        data.reminder = Double(day)
+                        PersistenceController.shared.save()
+                      
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                 }
                 .padding()

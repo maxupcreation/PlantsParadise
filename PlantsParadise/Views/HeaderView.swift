@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
+
+    let addplant = AddPlants()
+    
     @State private var isPresentedBool = false
     
     var body: some View {
         NavigationView {
             VStack {
                 List{
+                    ForEach(addplant.items, id:\.self) { item in
+                        Text(item.name ?? "no data")
+                    }
+                    .onDelete(perform: removeItem)
                 }.cornerRadius(8)
                 VStack{
                     Button("Ajouter une plante") {
@@ -41,6 +49,13 @@ struct HeaderView: View {
         }
         .sheet(isPresented: $isPresentedBool) {
             AddPlants()
+        }
+    }
+    
+    func removeItem(at offsets: IndexSet) {
+        for index in offsets {
+            let item = addplant.items[index]
+            PersistenceController.shared.delete(item)
         }
     }
     
