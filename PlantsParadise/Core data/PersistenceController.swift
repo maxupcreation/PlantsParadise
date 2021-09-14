@@ -35,5 +35,4 @@ struct PersistenceController {
         context.delete(object)
         save(completion: completion)
     }
-    
 }
