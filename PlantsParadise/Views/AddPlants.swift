@@ -46,9 +46,7 @@ struct AddPlants: View {
                 
                 Spacer()
                 ///-----------------------
-                TextField("Nom de la plante",text: $plantName, onCommit:  {
-                    
-                })
+                TextField("Nom de la plante",text: $plantName)
                 
                 ///-----------------------
                 .padding()
