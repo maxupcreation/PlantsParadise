@@ -13,7 +13,7 @@ struct AddPlants: View {
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     ///-----------------------
-    @State private var plantName:String = ""
+    @State private var plantName: String = ""
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
@@ -41,7 +41,7 @@ struct AddPlants: View {
                 .font(Font.system(size: 20))
                 .opacity(Double(opacityButton))
                 .sheet(isPresented: self.$isImagePickerDisplay) {
-                            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                    ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
                 }
                 
                 Spacer()
@@ -49,6 +49,7 @@ struct AddPlants: View {
                 TextField("Nom de la plante",text: $plantName, onCommit:  {
                     
                 })
+                
                 ///-----------------------
                 .padding()
                 HStack {

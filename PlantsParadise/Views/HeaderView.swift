@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
-    let blueUIColor = UIColor(named: "BlueParadise")!
-    let magentaUIColor = UIColor(named: "MagentaParadise")!
     @State private var isPresentedBool = false
     
     var body: some View {
@@ -24,7 +21,7 @@ struct HeaderView: View {
                     }
                     .padding()
                     .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom)
                     )
                     .cornerRadius(8)
                     .foregroundColor(.white)
