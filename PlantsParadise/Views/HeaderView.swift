@@ -36,8 +36,6 @@ struct HeaderView: View {
             }
         }
     }
-    
-}
 
 
 struct HeaderView_Previews: PreviewProvider {
