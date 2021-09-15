@@ -17,27 +17,23 @@ struct HeaderView: View {
                     .font(.largeTitle)
                     .navigationBarTitleDisplayMode(.automatic)
                     .padding()
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
-                }
-                .navigationBarItems(leading:
-                                        HStack {
-                    Image("logo")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .font(.largeTitle)
-                        .navigationBarTitleDisplayMode(.automatic)
-                   
-                    Text("   Plants Paradise")
-                        .font(Font.custom("Didot", size: 30))
-                })
-            }.padding()
-        }
-        .sheet(isPresented: $isPresentedBool) {
-            AddPlants()
+                Text("  Plants Paradise")
+                    .font(Font.custom("Didot", size: 30))
+                Spacer()
+            
+            }
+            Spacer()
+            Button("Ajouter une plante") {
+                // TODO: - Condition for button
+
+            }
+            .padding()
+            .background(
+                LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom)
+            )
+            .cornerRadius(8)
+            .foregroundColor(.white)
+            }
         }
     }
     
