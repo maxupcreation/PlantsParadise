@@ -9,15 +9,13 @@ import SwiftUI
 
 struct HeaderView: View {
     
-
     let addplant = AddPlants()
-    
     @State private var isPresentedBool = false
     
     var body: some View {
         NavigationView {
             VStack {
-                List{
+                List {
                     ForEach(addplant.items, id:\.self) { item in
                         Text(item.name ?? "no data")
                     }
@@ -58,7 +56,6 @@ struct HeaderView: View {
             PersistenceController.shared.delete(item)
         }
     }
-    
 }
 
 

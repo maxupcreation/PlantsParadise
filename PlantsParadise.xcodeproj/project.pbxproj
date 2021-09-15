@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B8E73B726F1F1960090EBEC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E73B626F1F1960090EBEC /* WelcomeView.swift */; };
 		7B9ABE5426F046AA00438608 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9ABE5326F046AA00438608 /* Constant.swift */; };
 		7BEFFADC26E7B2C100007972 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFFADB26E7B2C100007972 /* HeaderView.swift */; };
 		9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlants.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B8E73B626F1F1960090EBEC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		7B9ABE5326F046AA00438608 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		7BEFFADB26E7B2C100007972 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9C185E8026E75FAE00B80512 /* AddPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlants.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		7BEFFADD26E7B34C00007972 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7B8E73B626F1F1960090EBEC /* WelcomeView.swift */,
 				7BEFFADB26E7B2C100007972 /* HeaderView.swift */,
 				9C185E8026E75FAE00B80512 /* AddPlants.swift */,
 			);
@@ -303,6 +306,7 @@
 				7B9ABE5426F046AA00438608 /* Constant.swift in Sources */,
 				9C8253A526E246C5006BAC0A /* PlantsParadise.xcdatamodeld in Sources */,
 				9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */,
+				7B8E73B726F1F1960090EBEC /* WelcomeView.swift in Sources */,
 				9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */,
 				9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */,
 				7BEFFADC26E7B2C100007972 /* HeaderView.swift in Sources */,
