@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @State private var isPresentedBool = false
-    
     var body: some View {
         NavigationView {
             VStack {
