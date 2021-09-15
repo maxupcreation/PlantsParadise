@@ -23,9 +23,7 @@ struct AddPlants: View {
     @State private var opacityButton = 1
     
     var body: some View {
-        
         NavigationView {
-            
             VStack {
                 Button(textCameraButton) {
                     self.sourceType = .camera
@@ -36,7 +34,6 @@ struct AddPlants: View {
                                 .resizable()
                                 .frame(width: 200, height: 260, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-                                
                                 .cornerRadius(50))
                 .font(Font.system(size: 20))
                 .opacity(Double(opacityButton))
