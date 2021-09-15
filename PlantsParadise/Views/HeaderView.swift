@@ -9,14 +9,13 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                List{
-                }.cornerRadius(8)
-                VStack{
-                    Button("Ajouter une plante") {
-                        isPresentedBool.toggle()
-                    }
+        VStack(alignment: .center) {
+            HStack {
+                Image("logo")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .font(.largeTitle)
+                    .navigationBarTitleDisplayMode(.automatic)
                     .padding()
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom)
