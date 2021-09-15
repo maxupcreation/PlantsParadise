@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
+let coreDM: CoreDataManager
+var plantName = ""
 
-    let addplant = AddPlants()
     
     @State private var isPresentedBool = false
+    @State private var plants: [Plants] = [Plants]()
     
     var body: some View {
         NavigationView {
             VStack {
                 List{
-                    ForEach(addplant.items, id:\.self) { item in
+                    ForEach(plants, id:\.self) { item in
                         Text(item.name ?? "no data")
                     }
-                    .onDelete(perform: removeItem)
                 }.cornerRadius(8)
                 VStack{
                     Button("Ajouter une plante") {
@@ -48,22 +48,17 @@ struct HeaderView: View {
             }.padding()
         }
         .sheet(isPresented: $isPresentedBool) {
-            AddPlants()
+            AddPlants(coreDM: CoreDataManager())
+        }
+        .onAppear {
+            plants = coreDM.getAllPlants()
         }
     }
-    
-    func removeItem(at offsets: IndexSet) {
-        for index in offsets {
-            let item = addplant.items[index]
-            PersistenceController.shared.delete(item)
-        }
-    }
-    
 }
 
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView(coreDM: CoreDataManager())
     }
 }

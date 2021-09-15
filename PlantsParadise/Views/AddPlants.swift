@@ -10,14 +10,8 @@ import SwiftUI
 struct AddPlants: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Environment(\.managedObjectContext) var managedObjectContext
     
-    @FetchRequest(
-        entity: Plants.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Plants.name, ascending: true)],
-        predicate: NSPredicate(format: "name == %@", "name")
-    ) var items: FetchedResults<Plants>
-    
+    let coreDM : CoreDataManager
     let blueUIColor = UIColor(named: "BlueParadise")!
     let magentaUIColor = UIColor(named: "MagentaParadise")!
     ///-----------------------
@@ -44,7 +38,7 @@ struct AddPlants: View {
                                 .resizable()
                                 .frame(width: 200, height: 260, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-                                
+                            
                                 .cornerRadius(50))
                 .font(Font.system(size: 20))
                 .opacity(Double(opacityButton))
@@ -57,7 +51,7 @@ struct AddPlants: View {
                 TextField("Nom de la plante",text: $plantName)
                 
                 ///-----------------------
-                .padding()
+                    .padding()
                 HStack {
                     Text("Rappel arrosage")
                         .font(Font.system(size: 20))
@@ -87,15 +81,10 @@ struct AddPlants: View {
                     .clipShape(Circle())
                 }
                 Button("Ajouter la plante") {
-                    action: do {
-                        let data = Plants(context: managedObjectContext)
-                        data.name = plantName
-                        data.picture = selectedImage?.pngData()
-                        data.reminder = Double(day)
-                        PersistenceController.shared.save()
-                      
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                action: do {
+                    coreDM.savePlants(name: plantName)
+                    self.presentationMode.wrappedValue.dismiss()
+                }
                 }
                 .padding()
                 .background(
@@ -111,7 +100,7 @@ struct AddPlants: View {
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
         static var previews: some View {
-            AddPlants()
+            AddPlants(coreDM: CoreDataManager())
         }
     }
 }
