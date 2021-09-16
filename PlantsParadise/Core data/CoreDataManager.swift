@@ -1,6 +1,6 @@
 
 
-import Foundation
+import SwiftUI
 import CoreData
 
 class CoreDataManager {
@@ -48,10 +48,12 @@ class CoreDataManager {
         }
     }
     
-    func savePlants(name: String) {
+    func savePlants(name: String,img: UIImage,remember: Double) {
         
         let plants = Plants(context: persistentContainer.viewContext)
         plants.name = name
+        plants.picture = img.pngData()
+        plants.reminder = remember
         
         do {
             try persistentContainer.viewContext.save()

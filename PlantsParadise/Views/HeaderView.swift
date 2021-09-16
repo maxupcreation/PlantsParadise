@@ -18,11 +18,20 @@ var plantName = ""
     var body: some View {
         NavigationView {
             VStack {
+              
                 List{
                     ForEach(plants, id:\.self) { item in
+                        HStack {
+//                            Image(UIImage(data: item.picture!)!.description)
                         Text(item.name ?? "no data")
+                            Spacer()
+                            Text(String(item.reminder))
+                           
+                        }
                     }
-                }.cornerRadius(8)
+                }
+               
+
                 VStack{
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
@@ -50,9 +59,11 @@ var plantName = ""
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
         }
+       
         .onAppear {
             plants = coreDM.getAllPlants()
         }
+        .background(Color.gray)
     }
 }
 
@@ -60,5 +71,7 @@ var plantName = ""
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView(coreDM: CoreDataManager())
+            
     }
 }
+

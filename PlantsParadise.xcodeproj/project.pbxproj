@@ -12,7 +12,6 @@
 		9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlants.swift */; };
 		9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8226E78AAF00B80512 /* ImagePickerView.swift */; };
 		9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8426E78C0200B80512 /* Coordinator.swift */; };
-		9C358B2526EFAA9A00CFA928 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */; };
 		9C73529026F228A4005EAB1E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73528F26F228A4005EAB1E /* CoreDataManager.swift */; };
 		9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */; };
 		9C82539B26E246C4006BAC0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C82539A26E246C4006BAC0A /* ContentView.swift */; };
@@ -46,7 +45,6 @@
 		9C185E8026E75FAE00B80512 /* AddPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlants.swift; sourceTree = "<group>"; };
 		9C185E8226E78AAF00B80512 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		9C185E8426E78C0200B80512 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		9C3B2CC426E66FED002A3B33 /*  Didot.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = " Didot.ttc"; sourceTree = "<group>"; };
 		9C73528F26F228A4005EAB1E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9C82539526E246C4006BAC0A /* PlantsParadise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsParadise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				9C8253A326E246C5006BAC0A /* PlantsParadise.xcdatamodeld */,
-				9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */,
 				9C73528F26F228A4005EAB1E /* CoreDataManager.swift */,
 			);
 			path = "Core data";
@@ -310,7 +307,6 @@
 				9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */,
 				7BEFFADC26E7B2C100007972 /* HeaderView.swift in Sources */,
 				9C73529026F228A4005EAB1E /* CoreDataManager.swift in Sources */,
-				9C358B2526EFAA9A00CFA928 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
