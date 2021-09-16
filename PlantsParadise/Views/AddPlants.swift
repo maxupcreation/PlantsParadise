@@ -28,7 +28,7 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
-    @State private var imageName = "icons8-compact_camera"
+    private var imageName = "icons8-compact_camera"
     
     var body: some View {
         
