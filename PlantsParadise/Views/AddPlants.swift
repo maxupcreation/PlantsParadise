@@ -17,7 +17,7 @@ struct AddPlants: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Plants.name, ascending: true)],
         predicate: NSPredicate(format: "name == %@", "name")
     ) var items: FetchedResults<Plants>
-
+    
     ///-----------------------
     @State private var plantName: String = ""
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -35,7 +35,7 @@ struct AddPlants: View {
         NavigationView {
             
             VStack {
-                Image(imageName)
+                Image(uiImage: (selectedImage ?? UIImage(named: imageName)) ?? UIImage())
                     .resizable()
                     .frame(width: 200, height: 200, alignment: .center)
                     .aspectRatio(contentMode: .fit)
@@ -43,7 +43,6 @@ struct AddPlants: View {
                     .opacity(Double(opacityButton))
                     .sheet(isPresented: self.$isImagePickerDisplay) {
                         ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-                        $imageName = se
                     }
                 
                 Button(textCameraButton) {
@@ -66,9 +65,9 @@ struct AddPlants: View {
                 Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName)
-                
-                ///-----------------------
-                .padding()
+                    
+                    ///-----------------------
+                    .padding()
                     .border(Color.gray, width: 1)
                     .cornerRadius(3.0)
                 HStack {
@@ -106,7 +105,7 @@ struct AddPlants: View {
                         data.picture = selectedImage?.pngData()
                         data.reminder = Double(day)
                         PersistenceController.shared.save()
-                      
+                        
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
