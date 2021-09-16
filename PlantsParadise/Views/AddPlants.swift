@@ -50,18 +50,18 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-                .foregroundColor(.black)
-                .background(Image(uiImage: selectedImage ?? UIImage())
-                                .resizable()
-                                .frame(width: 200, height: 260, alignment: .center)
-                                .aspectRatio(contentMode: .fit)
-                                
-                                .cornerRadius(50))
-                .font(Font.system(size: 20))
-                .opacity(Double(opacityButton))
-                .sheet(isPresented: self.$isImagePickerDisplay) {
-                    ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-                }
+//                .foregroundColor(.black)
+//                .background(Image(uiImage: selectedImage ?? UIImage())
+//                                .resizable()
+//                                .frame(width: 200, height: 260, alignment: .center)
+//                                .aspectRatio(contentMode: .fit)
+//                                
+//                                .cornerRadius(50))
+//                .font(Font.system(size: 20))
+//                .opacity(Double(opacityButton))
+//                .sheet(isPresented: self.$isImagePickerDisplay) {
+//                    ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+//                }
                 
                 Spacer()
                 ///-----------------------
