@@ -18,8 +18,6 @@ struct AddPlants: View {
         predicate: NSPredicate(format: "name == %@", "name")
     ) var items: FetchedResults<Plants>
     
-    let blueUIColor = UIColor(named: "BlueParadise")!
-    let magentaUIColor = UIColor(named: "MagentaParadise")!
     ///-----------------------
     @State private var plantName: String = ""
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -30,34 +28,35 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
+    private var imageName = "icons8-compact_camera"
+    
     var body: some View {
         
         NavigationView {
             
             VStack {
+                Image(uiImage: (selectedImage ?? UIImage(named: imageName)) ?? UIImage())
+                    .resizable()
+                    .frame(width: 200, height: 200, alignment: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(50)
+                    .opacity(Double(opacityButton))
+                    .sheet(isPresented: self.$isImagePickerDisplay) {
+                        ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                    }
+                
                 Button(textCameraButton) {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-                .foregroundColor(.black)
-                .background(Image(uiImage: selectedImage ?? UIImage())
-                                .resizable()
-                                .frame(width: 200, height: 260, alignment: .center)
-                                .aspectRatio(contentMode: .fit)
-                                
-                                .cornerRadius(50))
-                .font(Font.system(size: 20))
-                .opacity(Double(opacityButton))
-                .sheet(isPresented: self.$isImagePickerDisplay) {
-                    ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-                }
-                
                 Spacer()
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName)
-                
-                ///-----------------------
-                .padding()
+                    
+                    ///-----------------------
+                    .padding()
+                    .border(Color.gray, width: 1)
+                    .cornerRadius(3.0)
                 HStack {
                     Text("Rappel arrosage")
                         .font(Font.system(size: 20))
@@ -93,13 +92,13 @@ struct AddPlants: View {
                         data.picture = selectedImage?.pngData()
                         data.reminder = Double(day)
                         PersistenceController.shared.save()
-                      
+                        
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
                 .padding()
                 .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(magentaUIColor), Color(blueUIColor)]), startPoint: .top, endPoint: .bottom))
+                    LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
                 .cornerRadius(8)
                 .foregroundColor(.white)
             }
