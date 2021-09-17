@@ -8,18 +8,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
-    @FetchRequest(
-        entity: Plants.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Plants.name, ascending: true)],
-        predicate: NSPredicate(format: "name == %@", "name")
-    ) var items: FetchedResults<Plants>
-    
     let addplant = AddPlants()
-    @State private var isPcresentedBool = false
+    @State private var isPresentedBool = false
     
     var body: some View {
         NavigationView {
