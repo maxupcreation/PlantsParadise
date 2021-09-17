@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HeaderView: View {
-let coreDM: CoreDataManager
-var plantName = ""
-
+    let coreDM: CoreDataManager
+    var plantName = ""
+    
     
     @State private var isPresentedBool = false
     @State private var plants: [Plants] = [Plants]()
@@ -18,20 +18,20 @@ var plantName = ""
     var body: some View {
         NavigationView {
             VStack {
-              
+                
                 List{
                     ForEach(plants, id:\.self) { item in
                         HStack {
-//                            Image(UIImage(data: item.picture!)!.description)
-                        Text(item.name ?? "no data")
+                            //                            Image(uiImage: UIImage(item.picture))
+                            Text(item.name ?? "no data")
                             Spacer()
-                            Text(String(item.reminder))
-                           
+                            Text(String(Int(item.reminder)))
+                            
                         }
                     }
                 }
-               
-
+                
+                
                 VStack{
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
@@ -50,7 +50,7 @@ var plantName = ""
                         .frame(width: 60, height: 60)
                         .font(.largeTitle)
                         .navigationBarTitleDisplayMode(.automatic)
-                   
+                    
                     Text("   Plants Paradise")
                         .font(Font.custom("Didot", size: 30))
                 })
@@ -59,11 +59,11 @@ var plantName = ""
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
         }
-       
+        
         .onAppear {
             plants = coreDM.getAllPlants()
         }
-        .background(Color.gray)
+        
     }
 }
 
@@ -71,7 +71,7 @@ var plantName = ""
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView(coreDM: CoreDataManager())
-            
+        
     }
 }
 
