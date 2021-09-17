@@ -18,7 +18,13 @@ struct WelcomeView: View {
             VStack {
                 List {
                     ForEach(plants, id:\.self) { item in
+                        HStack{
+                            Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
+                        Spacer()
                         Text(item.name ?? "no data")
+                        Spacer()
+                        Text(String(item.reminder ))
+                        }
                     }
                 }
                 .cornerRadius(8)
@@ -49,6 +55,9 @@ struct WelcomeView: View {
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
         }
+        .onAppear {
+                 plants = coreDM.getAllPlants()
+             }
     }
     
     

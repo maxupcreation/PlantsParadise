@@ -82,7 +82,6 @@ struct AddPlants: View {
                 Button("Ajouter la plante") {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
-                        
                         self.presentationMode.wrappedValue.dismiss()
                  
                     }
