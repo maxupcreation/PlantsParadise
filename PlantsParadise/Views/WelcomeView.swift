@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    
     let addplant = AddPlants()
     @State private var isPresentedBool = false
     

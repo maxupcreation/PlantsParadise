@@ -31,9 +31,7 @@ struct AddPlants: View {
     private var imageName = "icons8-compact_camera"
     
     var body: some View {
-        
         NavigationView {
-            
             VStack {
                 Image(uiImage: (selectedImage ?? UIImage(named: imageName)) ?? UIImage())
                     .resizable()
@@ -62,7 +60,6 @@ struct AddPlants: View {
                         .font(Font.system(size: 20))
                         .padding()
                         .padding()
-                    
                 }
                 
                 HStack {
@@ -94,6 +91,7 @@ struct AddPlants: View {
                         PersistenceController.shared.save()
                         
                         self.presentationMode.wrappedValue.dismiss()
+                        print(data)
                     }
                 }
                 .padding()
