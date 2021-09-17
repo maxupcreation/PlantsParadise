@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    let addplant = AddPlants()
+    let coreDM: CoreDataManager
+    
     @State private var isPresentedBool = false
+    @State private var plants: [Plants] = [Plants]()
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(addplant.items, id:\.self) { item in
+                    ForEach(plants, id:\.self) { item in
                         Text(item.name ?? "no data")
                     }
-                    .onDelete(perform: removeItem)
-                }.cornerRadius(8)
+                }
+                .cornerRadius(8)
                 VStack{
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
@@ -38,31 +40,22 @@ struct WelcomeView: View {
                         .frame(width: 60, height: 60)
                         .font(.largeTitle)
                         .navigationBarTitleDisplayMode(.automatic)
-                   
+                    
                     Text("   Plants Paradise")
                         .font(Font.custom("Didot", size: 30))
                 })
             }.padding()
         }
         .sheet(isPresented: $isPresentedBool) {
-            AddPlants()
+            AddPlants(coreDM: CoreDataManager())
         }
     }
     
-    func removeItem(at offsets: IndexSet) {
-        for index in offsets {
-            let item = addplant.items[index]
-            PersistenceController.shared.delete(item)
+    
+    
+    struct WelcomeView_Previews: PreviewProvider {
+        static var previews: some View {
+            WelcomeView(coreDM: CoreDataManager())
         }
     }
 }
-
-
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
-    }
-}
-
-
-

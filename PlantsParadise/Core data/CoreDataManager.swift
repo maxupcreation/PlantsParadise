@@ -1,58 +1,64 @@
+import SwiftUI
 import CoreData
 
-final class CoreDataManager {
+class CoreDataManager {
     
-    // MARK: - Properties
+    let persistentContainer: NSPersistentContainer
     
-    private let coreDataStack: CoreDataStack
-    private let managedObjectContext: NSManagedObjectContext
-    
-    
-    var plants: [Plants] {
-        let request: NSFetchRequest<Plants> = Plants.fetchRequest()
-        //request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        guard let plant = try? managedObjectContext.fetch(request) else { return [] }
-        return plant
+    init() {
+        persistentContainer = NSPersistentContainer(name: "PlantsParadise")
+        persistentContainer.loadPersistentStores { (description, error) in
+            if let error = error {
+                fatalError("Core Data Store failed \(error.localizedDescription)")
+            }
+        }
     }
     
-    
-    // MARK: - Initializer
-    
-    init(coreDataStack: CoreDataStack) {
-        self.coreDataStack = coreDataStack
-        self.managedObjectContext = coreDataStack.mainContext
+    func updatePlants() {
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            persistentContainer.viewContext.rollback()
+        }
     }
     
-    // MARK: - Manage func Entity
+    func deletePlants(movie: Plants) {
+        
+        persistentContainer.viewContext.delete(movie)
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            persistentContainer.viewContext.rollback()
+            print("Failed to save context \(error)")
+        }
+    }
     
+    func getAllPlants() -> [Plants] {
+        
+        let fetchRequest: NSFetchRequest<Plants> = Plants.fetchRequest()
+        
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
     
+    func savePlants(name: String,img: UIImage,remember: Double) {
+        
+        let plants = Plants(context: persistentContainer.viewContext)
+        plants.name = name
+        plants.picture = img.pngData()
+        plants.reminder = remember
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Failed to save movie \(error)")
+        }
+        
+    }
     
-    
-    
-//    // Ajout dans CoreData
-//
-//func createFavorite(label: String, image: UIImage) {
-//    let entity = Entity(context: managedObjectContext)
-//    entity.label = label
-//
-//    // Ajouter d'une image dans CoreData en l'a transformant en Data
-//    let image = image.pngData()
-//    favorite.image = image
-//
-//    coreDataStack.saveContext()
-//}
-//
-//
-//    //Delete
-//
-//        func deleteName(indexPath : IndexPath) {
-//        let removeCellEntityIndexPath = entity[indexPath.row]
-//        managedObjectContext.delete(removeCellHomeTasksIndexPath)
-//        coreDataStack.saveContext()
-//    }
-//
-//    func deleteAllName() {
-//        person.forEach { managedObjectContext.delete($0) }
-//        coreDataStack.saveContext()
-//    }
 }

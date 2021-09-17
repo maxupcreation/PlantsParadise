@@ -12,7 +12,6 @@
 		9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlants.swift */; };
 		9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8226E78AAF00B80512 /* ImagePickerView.swift */; };
 		9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8426E78C0200B80512 /* Coordinator.swift */; };
-		9C358B2526EFAA9A00CFA928 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */; };
 		9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */; };
 		9C82539B26E246C4006BAC0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C82539A26E246C4006BAC0A /* ContentView.swift */; };
 		9C82539D26E246C5006BAC0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C82539C26E246C5006BAC0A /* Assets.xcassets */; };
@@ -20,6 +19,8 @@
 		9C8253A526E246C5006BAC0A /* PlantsParadise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C8253A326E246C5006BAC0A /* PlantsParadise.xcdatamodeld */; };
 		9C8253B026E246C6006BAC0A /* PlantsParadiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8253AF26E246C6006BAC0A /* PlantsParadiseTests.swift */; };
 		9C8253BB26E246C6006BAC0A /* PlantsParadiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8253BA26E246C6006BAC0A /* PlantsParadiseUITests.swift */; };
+		9CC776D826F4926B0010C761 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC776D726F4926B0010C761 /* CoreDataManager.swift */; };
+		9CC776DA26F4930A0010C761 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC776D926F4930A0010C761 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,6 @@
 		9C185E8026E75FAE00B80512 /* AddPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlants.swift; sourceTree = "<group>"; };
 		9C185E8226E78AAF00B80512 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		9C185E8426E78C0200B80512 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		9C3B2CC426E66FED002A3B33 /*  Didot.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = " Didot.ttc"; sourceTree = "<group>"; };
 		9C82539526E246C4006BAC0A /* PlantsParadise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsParadise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C82539826E246C4006BAC0A /* PlantsParadiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsParadiseApp.swift; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		9C8253B626E246C6006BAC0A /* PlantsParadiseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantsParadiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8253BA26E246C6006BAC0A /* PlantsParadiseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsParadiseUITests.swift; sourceTree = "<group>"; };
 		9C8253BC26E246C6006BAC0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CC776D726F4926B0010C761 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9CC776D926F4930A0010C761 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,9 @@
 		7BEFFADE26E7B7B400007972 /* Core data */ = {
 			isa = PBXGroup;
 			children = (
+				9CC776D726F4926B0010C761 /* CoreDataManager.swift */,
+				9CC776D926F4930A0010C761 /* CoreDataStack.swift */,
 				9C8253A326E246C5006BAC0A /* PlantsParadise.xcdatamodeld */,
-				9C358B2426EFAA9A00CFA928 /* PersistenceController.swift */,
 			);
 			path = "Core data";
 			sourceTree = "<group>";
@@ -303,10 +306,11 @@
 				7B9ABE5426F046AA00438608 /* Constant.swift in Sources */,
 				9C8253A526E246C5006BAC0A /* PlantsParadise.xcdatamodeld in Sources */,
 				9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */,
+				9CC776DA26F4930A0010C761 /* CoreDataStack.swift in Sources */,
 				7B8E73B726F1F1960090EBEC /* WelcomeView.swift in Sources */,
+				9CC776D826F4926B0010C761 /* CoreDataManager.swift in Sources */,
 				9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */,
 				9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */,
-				9C358B2526EFAA9A00CFA928 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
