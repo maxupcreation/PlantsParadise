@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddPlants: View {
-   
+    
     //For dissmiss View
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //For save in coreData
@@ -24,7 +24,7 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
-     var imageName = "icons8-compact_camera"
+    var imageName = "icons8-compact_camera"
     
     var body: some View {
         NavigationView {
@@ -43,7 +43,7 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-             
+                
                 ///-----------------------
                 TextField("Nom de la plante",text: $plantName)
                     
@@ -51,12 +51,12 @@ struct AddPlants: View {
                     .padding()
                     .border(Color.gray, width: 1)
                     .cornerRadius(3.0)
-          
-                    Text("Rappel arrosage")
-                        .font(Font.system(size: 20))
-                        .padding()
-                        .padding()
-              
+                
+                Text("Rappel arrosage")
+                    .font(Font.system(size: 20))
+                    .padding()
+                    .padding()
+                
                 
                 HStack {
                     Button("-") {
@@ -83,7 +83,7 @@ struct AddPlants: View {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
                         self.presentationMode.wrappedValue.dismiss()
-                 
+                        
                     }
                 }
                 .padding()
@@ -92,9 +92,7 @@ struct AddPlants: View {
                 .cornerRadius(8)
                 .foregroundColor(.white)
                 Spacer(minLength: 100)
-          
             }
-         
         }
     }
     
