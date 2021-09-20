@@ -64,7 +64,8 @@ struct AddPlants: View {
                     .frame(width: 30, height: 30)
                     .foregroundColor(Color.white)
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.4))
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
                     .clipShape(Circle())
                     
                     
@@ -84,7 +85,6 @@ struct AddPlants: View {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
                         self.presentationMode.wrappedValue.dismiss()
-                        
                     }
                 }
                 .padding()
