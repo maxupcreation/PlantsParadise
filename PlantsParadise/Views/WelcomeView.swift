@@ -12,6 +12,7 @@ struct WelcomeView: View {
     
     @State private var isPresentedBool = false
     @State private var plants: [Plants] = [Plants]()
+    let gradientColor = GradientColor()
     
     var body: some View {
         NavigationView {
@@ -28,15 +29,18 @@ struct WelcomeView: View {
                     }
                 }
                 .cornerRadius(8)
+                
                 VStack{
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
                     }
+                    .font(Font.system(size: 30))
+                    .frame(width: 300, height: 40, alignment: .center)
                     .padding()
                     .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .cornerRadius(8)
+                        gradientColor.linearGradientPink())
+                    
+                    .clipShape(Capsule())
                     .foregroundColor(.white)
                 }
                 .navigationBarItems(leading:
