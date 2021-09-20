@@ -97,9 +97,10 @@ struct AddPlants: View {
                 .padding()
                 .background(
                     LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
-                .cornerRadius(8)
+                .cornerRadius(25)
                 .foregroundColor(.white)
-                Spacer(minLength: 100)
+                .frame(width: 700, height: 100)
+                .padding()
             }
         }
     }
