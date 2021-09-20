@@ -101,7 +101,9 @@ struct AddPlants: View {
                 .foregroundColor(.white)
                 .frame(width: 700, height: 100)
                 .padding()
+                Spacer(minLength: 115)
             }
+          
         }
     }
     

@@ -50,7 +50,8 @@ struct WelcomeView: View {
                     Text("   Plants Paradise")
                         .font(Font.custom("Didot", size: 30))
                 })
-            }.padding()
+            }
+            .padding()
         }
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
