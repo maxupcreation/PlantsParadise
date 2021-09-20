@@ -21,6 +21,9 @@ struct WelcomeView: View {
                     ForEach(plants, id:\.self) { item in
                         HStack{
                             Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(30)
                         Spacer()
                         Text(item.name ?? "no data")
                         Spacer()
