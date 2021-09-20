@@ -62,7 +62,7 @@ struct WelcomeView: View {
                 .navigationBarHidden(false)
             }
             .padding()
-            .background(Color.red)
+          
 
         }
         
