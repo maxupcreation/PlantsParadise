@@ -15,19 +15,21 @@ struct WelcomeView: View {
     let gradientColor = GradientColor()
     
     var body: some View {
+        
         NavigationView {
             VStack {
                 List {
                     ForEach(plants, id:\.self) { item in
-                        HStack{
+                        HStack {
                             Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .cornerRadius(30)
-                        Spacer()
-                        Text(item.name ?? "no data")
-                        Spacer()
-                        Text(String(item.reminder ))
+                                .frame(width: 70, height: 70, alignment: .center)
+                                .cornerRadius(20)
+                            Spacer()
+                            Text(item.name ?? "no data")
+                            Spacer()
+                            Text(String(item.reminder ))
                         }
                     }
                 }
@@ -48,15 +50,15 @@ struct WelcomeView: View {
                 }
                 .navigationBarItems(leading:
                                         HStack {
-                    Image("logoAlt")
-                        .resizable()
-                        .frame(width: 40, height: 60)
-                        .font(.largeTitle)
-                        .navigationBarTitleDisplayMode(.automatic)
-                    
-                    Text("   Plants Paradise")
-                        .font(Font.custom("Didot", size: 30))
-                })
+                                            Image("logoAlt")
+                                                .resizable()
+                                                .frame(width: 30, height: 45)
+                                                .font(.largeTitle)
+                                                .navigationBarTitleDisplayMode(.automatic)
+                                            
+                                            Text("   Plants Paradise")
+                                                .font(Font.custom("Didot", size: 30))
+                                        })
             }
             .padding()
         }
@@ -64,8 +66,8 @@ struct WelcomeView: View {
             AddPlants(coreDM: CoreDataManager())
         }
         .onAppear {
-                 plants = coreDM.getAllPlants()
-             }
+            plants = coreDM.getAllPlants()
+        }
     }
     
     
