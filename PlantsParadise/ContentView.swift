@@ -10,6 +10,9 @@ import CoreData
 
 struct ContentView: View {
     
+    init() {
+        UITableView.appearance().backgroundColor = .red
+    }
     var body: some View {
         WelcomeView(coreDM: CoreDataManager())
     }

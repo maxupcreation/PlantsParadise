@@ -7,7 +7,6 @@ open class CoreDataStack {
     // MARK: - Properties
     
     static let shared = CoreDataStack(modelName: "PlantsParadise")
-
     private let modelName: String
 
     // MARK: - Initializer

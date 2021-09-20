@@ -29,7 +29,7 @@ struct WelcomeView: View {
                             Spacer()
                             Text(item.name ?? "no data")
                             Spacer()
-                            Text(String(item.reminder ))
+                            Text(String(item.reminder))
                         }
                     }
                 }
@@ -52,16 +52,22 @@ struct WelcomeView: View {
                                         HStack {
                                             Image("logoAlt")
                                                 .resizable()
-                                                .frame(width: 30, height: 45)
+                                                .frame(width: 40, height: 65)
                                                 .font(.largeTitle)
                                                 .navigationBarTitleDisplayMode(.automatic)
                                             
-                                            Text("   Plants Paradise")
-                                                .font(Font.custom("Didot", size: 30))
+                                            Text(" Plants Paradise")
+                                                .font(Font.custom("Didot", size: 40))
                                         })
+                .navigationBarHidden(false)
             }
             .padding()
+            .background(Color.red)
+
         }
+        
+        .background(Color.red)
+
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
         }
