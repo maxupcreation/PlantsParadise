@@ -13,7 +13,7 @@ struct AddPlants: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //For save in coreData
     let coreDM: CoreDataManager
-    
+    let gradientColor = GradientColor()
     ///-----------------------
     @State private var plantName: String = ""
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -24,7 +24,7 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
-    var imageName = "icons8-compact_camera"
+    var imageName = "icons8-beach"
     
     var body: some View {
         NavigationView {
@@ -43,66 +43,72 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
+                .frame(width: 325, height: 65, alignment: .center)
+                .font(Font.system(size: 35))
+                .foregroundColor(.white)
+                .background(gradientColor.linearGradientBlue())
+                .clipShape(Capsule(style: .circular))
+                
                 ///-----------------------
                 TextField("Nom de la plante", text: $plantName)
                         .padding(20)
                         .background(Color(Constant.Color.ligthGray))
-//                        .clipShape(Rectangle())
                         .cornerRadius(100)
                         .padding(20)
                     ///----------------------
                 Text("Rappel arrosage")
                     .font(Font.system(size: 35))
-                    .padding(.all, 40)
+                    .padding(10)
                 
                 HStack {
                     Button("-") {
                         guard day > 1 else { return }
                         day -= 1
                     }
-                    .frame(width: 30, height: 30)
+                    .font(Font.system(size: 50))
+                    .frame(width: 30, height: 70)
                     .foregroundColor(Color.white)
                     .padding()
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
-                    .clipShape(Circle())
-                    
+                    .background(gradientColor.linearGradientPink())
+                    .clipShape(Capsule(style: .circular))
+                    .padding()
                     
                     ///------------------------
                     VStack {
                         Text("\(day)")
                             .font(Font.system(size: 50))
                         Text("Jours")
-                            .font(Font.system(size: 45))
+                            .font(Font.system(size: 30))
                     }
-                    
+                    .padding()
                     Button("+") {
                         day += 1
                     }
-                    .frame(width: 30, height: 30)
+                    
+                    .font(Font.system(size: 50))
+                    .frame(width: 30, height: 70)
                     .foregroundColor(Color.white)
                     .padding()
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
-                    .clipShape(Circle())
+                    .background(gradientColor.linearGradientPink())
+                    .clipShape(Capsule(style: .circular))
+                    .padding()
                 }
                 Spacer()
-                Button("Ajouter la plante") {
+                Button("Ajouter cette plante") {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
+                .font(Font.system(size: 30))
+                .frame(width: 300, height: 40, alignment: .center)
                 .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
-                .cornerRadius(25)
+                .background(gradientColor.linearGradientPink())
                 .foregroundColor(.white)
-                .frame(width: 700, height: 100)
-                .padding()
-                Spacer(minLength: 115)
+                .clipShape(Capsule(style: .circular))
+                Spacer(minLength: 130)
             }
-          
+                         
         }
     }
     
