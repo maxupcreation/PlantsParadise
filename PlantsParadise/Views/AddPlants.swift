@@ -70,8 +70,12 @@ struct AddPlants: View {
                     
                     
                     ///------------------------
-                    Text("Tout les \(day) jours")
-                        .font(Font.system(size: 30))
+                    VStack {
+                        Text("\(day)")
+                            .font(Font.system(size: 50))
+                        Text("Jours")
+                            .font(Font.system(size: 45))
+                    }
                     
                     Button("+") {
                         day += 1
