@@ -87,7 +87,7 @@ struct AddPlants: View {
                         LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
                     .clipShape(Circle())
                 }
-                
+                Spacer()
                 Button("Ajouter la plante") {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
