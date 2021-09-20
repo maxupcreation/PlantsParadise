@@ -61,9 +61,12 @@ struct AddPlants: View {
                         guard day > 1 else { return }
                         day -= 1
                     }
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(Color.white)
                     .padding()
                     .background(Color(red: 0, green: 0, blue: 0.4))
                     .clipShape(Circle())
+                    
                     
                     ///------------------------
                     Text("Tout les \(day) jours")
