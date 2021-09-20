@@ -45,12 +45,11 @@ struct AddPlants: View {
                 }
                 
                 ///-----------------------
-                TextField("Nom de la plante",text: $plantName)
-                    
-                    ///-----------------------
-                    .padding()
-                    .border(Color.gray, width: 1)
-                    .cornerRadius(3.0)
+            
+                    TextField("Nom de la plante", text: $plantName)
+                        .padding()
+                        .border(Color.gray, width: 1)
+                        .clipShape(Rectangle())
                 
                 Text("Rappel arrosage")
                     .font(Font.system(size: 20))
