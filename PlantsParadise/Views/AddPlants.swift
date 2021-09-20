@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddPlants: View {
-   
+    
     //For dissmiss View
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     //For save in coreData
@@ -24,7 +24,7 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
-     var imageName = "icons8-compact_camera"
+    var imageName = "icons8-compact_camera"
     
     var body: some View {
         NavigationView {
@@ -43,58 +43,65 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-             
+                
                 ///-----------------------
-                TextField("Nom de la plante",text: $plantName)
-                    
-                    ///-----------------------
-                    .padding()
-                    .border(Color.gray, width: 1)
-                    .cornerRadius(3.0)
-          
-                    Text("Rappel arrosage")
-                        .font(Font.system(size: 20))
+            
+                    TextField("Nom de la plante", text: $plantName)
                         .padding()
-                        .padding()
-              
+                        .border(Color.gray, width: 1)
+                        .clipShape(Rectangle())
+                
+                    ///----------------------
+                Text("Rappel arrosage")
+                    .font(Font.system(size: 35))
+                    .padding(.all, 40)
                 
                 HStack {
                     Button("-") {
                         guard day > 1 else { return }
                         day -= 1
                     }
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(Color.white)
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.4))
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
                     .clipShape(Circle())
                     
+                    
                     ///------------------------
-                    Text("Tout les \(day) jours")
-                        .font(Font.system(size: 30))
+                    VStack {
+                        Text("\(day)")
+                            .font(Font.system(size: 50))
+                        Text("Jours")
+                            .font(Font.system(size: 45))
+                    }
                     
                     Button("+") {
                         day += 1
                     }
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(Color.white)
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.4))
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
                     .clipShape(Circle())
                 }
-                
+                Spacer()
                 Button("Ajouter la plante") {
                     action: do {
                         coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
                         self.presentationMode.wrappedValue.dismiss()
-                 
                     }
                 }
                 .padding()
                 .background(
                     LinearGradient(gradient: Gradient(colors: [Color(Constant.Color.magentaUIColor), Color(Constant.Color.blueUIColor)]), startPoint: .top, endPoint: .bottom))
-                .cornerRadius(8)
+                .cornerRadius(25)
                 .foregroundColor(.white)
-                Spacer(minLength: 100)
-          
+                .frame(width: 700, height: 100)
+                .padding()
             }
-         
         }
     }
     
