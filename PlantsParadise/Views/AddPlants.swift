@@ -51,11 +51,10 @@ struct AddPlants: View {
                         .border(Color.gray, width: 1)
                         .clipShape(Rectangle())
                 
+                    ///----------------------
                 Text("Rappel arrosage")
-                    .font(Font.system(size: 20))
-                    .padding()
-                    .padding()
-                
+                    .font(Font.system(size: 35))
+                    .padding(.all, 40)
                 
                 HStack {
                     Button("-") {
