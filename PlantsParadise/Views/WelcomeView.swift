@@ -45,9 +45,9 @@ struct WelcomeView: View {
                 }
                 .navigationBarItems(leading:
                                         HStack {
-                    Image("logo")
+                    Image("logoAlt")
                         .resizable()
-                        .frame(width: 60, height: 60)
+                        .frame(width: 40, height: 60)
                         .font(.largeTitle)
                         .navigationBarTitleDisplayMode(.automatic)
                     
