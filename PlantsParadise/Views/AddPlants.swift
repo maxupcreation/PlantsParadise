@@ -31,7 +31,7 @@ struct AddPlants: View {
             VStack {
                 Image(uiImage: (selectedImage ?? UIImage(named: imageName)) ?? UIImage())
                     .resizable()
-                    .frame(width: 200, height: 200, alignment: .center)
+                    .frame(width: 150, height: 150, alignment: .center)
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(50)
                     .opacity(Double(opacityButton))
@@ -43,14 +43,13 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-                
                 ///-----------------------
-            
-                    TextField("Nom de la plante", text: $plantName)
-                        .padding()
-                        .border(Color.gray, width: 1)
-                        .clipShape(Rectangle())
-                
+                TextField("Nom de la plante", text: $plantName)
+                        .padding(20)
+                        .background(Color(Constant.Color.ligthGray))
+//                        .clipShape(Rectangle())
+                        .cornerRadius(100)
+                        .padding(20)
                     ///----------------------
                 Text("Rappel arrosage")
                     .font(Font.system(size: 35))
