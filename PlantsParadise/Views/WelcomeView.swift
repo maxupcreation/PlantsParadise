@@ -30,7 +30,7 @@ struct WelcomeView: View {
                             Spacer()
                             Text(item.name ?? "no data")
                             Spacer()
-                            Text(String(item.reminder))
+                            Text("\(amountDays) jours")
                         }
                     }
                 }
