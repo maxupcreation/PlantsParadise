@@ -23,7 +23,7 @@ struct WelcomeView: View {
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
                         HStack {
-                            Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
+                            Image(uiImage: (UIImage(data: item.picture ?? Data()) ?? noImage))
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 70, height: 70, alignment: .center)
@@ -55,7 +55,7 @@ struct WelcomeView: View {
                                             Image("logoAlt")
                                                 .resizable()
                                                 .frame(width: 40, height: 65)
-                                                .navigationBarTitleDisplayMode(.automatic)
+                                                .navigationBarTitleDisplayMode(.inline)
 
                                             Text(" Plants Paradise")
                                                 .font(Font.custom("Didot", size: 37))
