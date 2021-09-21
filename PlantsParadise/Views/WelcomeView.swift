@@ -36,7 +36,7 @@ struct WelcomeView: View {
                 }
                 .cornerRadius(8)
                 
-                VStack{
+                VStack {
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
                     }
@@ -54,11 +54,11 @@ struct WelcomeView: View {
                                             Image("logoAlt")
                                                 .resizable()
                                                 .frame(width: 40, height: 65)
-                                                .font(.largeTitle)
                                                 .navigationBarTitleDisplayMode(.automatic)
 
                                             Text(" Plants Paradise")
-                                                .font(Font.custom("Didot", size: 40))
+                                                .font(Font.custom("Didot", size: 37))
+                                                .padding()
                                         })
                 .navigationBarHidden(false)
             }
