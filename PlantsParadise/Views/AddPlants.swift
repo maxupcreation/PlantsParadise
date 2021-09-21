@@ -14,7 +14,9 @@ struct AddPlants: View {
     //For save in coreData
     let coreDM: CoreDataManager
     let gradientColor = GradientColor()
+    
     ///-----------------------
+    
     @State private var plantName: String = ""
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
@@ -116,7 +118,12 @@ struct AddPlants: View {
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
         static var previews: some View {
-            AddPlants( coreDM: CoreDataManager())
+            Group {
+                AddPlants( coreDM: CoreDataManager())
+                AddPlants( coreDM: CoreDataManager())
+                    .preferredColorScheme(.dark)
+            }
+            .previewLayout(.sizeThatFits)
         }
     }
 }
