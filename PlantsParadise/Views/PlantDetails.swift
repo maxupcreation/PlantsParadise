@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct PlantDetails: View {
-    let flowerName = "flower Name"
-    let reminderDays = "2"
+    let flowerName: String
+    let reminderDays: String
+    let imageName: String
     let gradientColor = GradientColor()
+    
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack {
             HStack(spacing: 30) {
-                Image(uiImage: UIImage(named: "Flower_Example")!)
+                Image(uiImage: UIImage(named: imageName)!)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .aspectRatio(contentMode: .fit)
@@ -30,12 +32,24 @@ struct PlantDetails: View {
                     .clipShape(Capsule(style: .circular))
             }
             Spacer()
+            
+            VStack {
+                Button("Ajouter cette plante") {
+                    
+                }
+                .font(Font.system(size: 30))
+                .frame(width: 300, height: 40)
+                .padding()
+                .background(gradientColor.linearGradientPink())
+                .foregroundColor(.white)
+                .clipShape(Capsule(style: .circular))
+            }
         }
     }
 }
 
 struct PlantDetails_Previews: PreviewProvider {
     static var previews: some View {
-        PlantDetails()
+        PlantDetails(flowerName: "Nom de la plante", reminderDays: 2, imageName: "Flower_Example")
     }
 }
