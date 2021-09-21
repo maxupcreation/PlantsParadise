@@ -24,7 +24,7 @@ struct AddPlants: View {
     @State private var day = 1
     @State private var opacityButton = 1
     
-    var imageName = "icons8-beach"
+    let imageName = "icons8-beach"
     
     var body: some View {
         NavigationView {
