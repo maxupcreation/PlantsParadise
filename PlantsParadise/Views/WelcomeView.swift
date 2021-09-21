@@ -21,6 +21,7 @@ struct WelcomeView: View {
                 List {
                     ForEach(plants, id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
+                        let noImage = UIImage(named: "icons8-no_image")!
                         HStack {
                             Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
                                 .resizable()
