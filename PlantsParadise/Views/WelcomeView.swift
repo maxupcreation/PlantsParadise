@@ -20,6 +20,7 @@ struct WelcomeView: View {
             VStack {
                 List {
                     ForEach(plants, id:\.self) { item in
+                        let amountDays = String(Int(item.reminder))
                         HStack {
                             Image(uiImage: UIImage(data: item.picture ?? Data()) ?? UIImage())
                                 .resizable()
@@ -55,19 +56,14 @@ struct WelcomeView: View {
                                                 .frame(width: 40, height: 65)
                                                 .font(.largeTitle)
                                                 .navigationBarTitleDisplayMode(.automatic)
-                                            
+
                                             Text(" Plants Paradise")
                                                 .font(Font.custom("Didot", size: 40))
                                         })
                 .navigationBarHidden(false)
             }
             .padding()
-          
-
         }
-        
-        .background(Color.red)
-
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
         }
@@ -75,9 +71,7 @@ struct WelcomeView: View {
             plants = coreDM.getAllPlants()
         }
     }
-    
-    
-    
+
     struct WelcomeView_Previews: PreviewProvider {
         static var previews: some View {
             WelcomeView(coreDM: CoreDataManager())
