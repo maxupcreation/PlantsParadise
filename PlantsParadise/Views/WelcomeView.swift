@@ -26,6 +26,7 @@ struct WelcomeView: View {
                             Image(uiImage: (UIImage(data: item.picture ?? Data()) ?? noImage))
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                                
                                 .frame(width: 70, height: 70, alignment: .center)
                                 .cornerRadius(20)
                             Spacer()
