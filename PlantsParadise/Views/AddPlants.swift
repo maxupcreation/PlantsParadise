@@ -11,6 +11,9 @@ struct AddPlants: View {
     
     //For dissmiss View
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State private var isPresented = false
+    
     //For save in coreData
     let coreDM: CoreDataManager
     let gradientColor = GradientColor()
@@ -53,11 +56,11 @@ struct AddPlants: View {
                 
                 ///-----------------------
                 TextField("Nom de la plante", text: $plantName)
-                        .padding(20)
-                        .background(Color(Constant.Color.ligthGray))
-                        .cornerRadius(100)
-                        .padding(20)
-                    ///----------------------
+                    .padding(20)
+                    .background(Color(Constant.Color.ligthGray))
+                    .cornerRadius(100)
+                    .padding(20)
+                ///----------------------
                 Text("Rappel arrosage")
                     .font(Font.system(size: 35))
                     .padding(10)
@@ -97,10 +100,11 @@ struct AddPlants: View {
                 }
                 Spacer()
                 Button("Ajouter cette plante") {
-                    action: do {
-                        coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                    isPresented.toggle()
+                    // self.presentationMode.wrappedValue.dismiss()
+                    
+                }.sheet(isPresented: self.$isPresented) {
+                    PlantDetails(flowerName: plantName, reminderDays: String(day), imageName: (selectedImage ?? UIImage(named: "Flower_Example")) ?? UIImage(), coreDM: CoreDataManager())
                 }
                 .font(Font.system(size: 30))
                 .frame(width: 300, height: 40, alignment: .center)
@@ -110,20 +114,14 @@ struct AddPlants: View {
                 .clipShape(Capsule(style: .circular))
                 Spacer(minLength: 130)
             }
-                         
+            
         }
     }
-    
+}
     
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
         static var previews: some View {
-            Group {
-                AddPlants( coreDM: CoreDataManager())
-                AddPlants( coreDM: CoreDataManager())
-                    .preferredColorScheme(.dark)
-            }
-            .previewLayout(.sizeThatFits)
+            AddPlants(coreDM: CoreDataManager())
         }
     }
-}
