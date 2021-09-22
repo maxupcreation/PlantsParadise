@@ -41,6 +41,9 @@ struct PlantDetails: View {
             
             VStack {
                 Button("Ajouter cette plante") {
+                action: do {
+                    coreDM.savePlants(name: flowerName, img: imageName, remember: Double(reminderDays)!)
+                    self.presentationMode.wrappedValue.dismiss()
                     
                 }
                 }
