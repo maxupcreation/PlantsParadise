@@ -16,6 +16,8 @@ struct PlantDetails: View {
     let imageName: UIImage
     let gradientColor = GradientColor()
     
+    let coreDM: CoreDataManager
+    
     var body: some View {
         
         VStack {
