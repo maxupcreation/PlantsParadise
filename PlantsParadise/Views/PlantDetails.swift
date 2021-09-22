@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct PlantDetails: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     let flowerName: String
     let reminderDays: String
-    let imageName: String
+    let imageName: UIImage
     let gradientColor = GradientColor()
     
     var body: some View {
         
         VStack {
             HStack(spacing: 30) {
-                Image(uiImage: UIImage(named: imageName)!)
+                Image(uiImage: imageName)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
-                    
+                
                 Text(flowerName)
                     .font(Font.custom("Didot", size: 22))
+                    .foregroundColor(.black)
                 Text(reminderDays)
                     .frame(width: 50, height: 50)
                     .background(gradientColor.linearGradientBlue())
@@ -36,6 +40,7 @@ struct PlantDetails: View {
             VStack {
                 Button("Ajouter cette plante") {
                     
+                }
                 }
                 .font(Font.system(size: 30))
                 .frame(width: 300, height: 40)
