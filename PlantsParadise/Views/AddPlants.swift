@@ -56,11 +56,11 @@ struct AddPlants: View {
                 
                 ///-----------------------
                 TextField("Nom de la plante", text: $plantName)
-                        .padding(20)
-                        .background(Color(Constant.Color.ligthGray))
-                        .cornerRadius(100)
-                        .padding(20)
-                    ///----------------------
+                    .padding(20)
+                    .background(Color(Constant.Color.ligthGray))
+                    .cornerRadius(100)
+                    .padding(20)
+                ///----------------------
                 Text("Rappel arrosage")
                     .font(Font.system(size: 35))
                     .padding(10)
