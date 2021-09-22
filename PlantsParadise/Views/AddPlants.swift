@@ -11,6 +11,9 @@ struct AddPlants: View {
     
     //For dissmiss View
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State private var isPresented = false
+    
     //For save in coreData
     let coreDM: CoreDataManager
     let gradientColor = GradientColor()
@@ -110,10 +113,10 @@ struct AddPlants: View {
                 .clipShape(Capsule(style: .circular))
                 Spacer(minLength: 130)
             }
-                         
+            
         }
     }
-    
+}
     
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
@@ -126,4 +129,3 @@ struct AddPlants: View {
             .previewLayout(.sizeThatFits)
         }
     }
-}
