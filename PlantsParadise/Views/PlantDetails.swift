@@ -60,6 +60,6 @@ struct PlantDetails: View {
 
 struct PlantDetails_Previews: PreviewProvider {
     static var previews: some View {
-        PlantDetails(flowerName: "Nom de la plante", reminderDays: 2, imageName: "Flower_Example")
+        PlantDetails(flowerName: "Nom de la plante", reminderDays: "2", imageName: UIImage(named: "icons8-no_image") ?? UIImage(), coreDM: CoreDataManager())
     }
 }
