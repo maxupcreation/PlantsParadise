@@ -122,11 +122,6 @@ struct AddPlants: View {
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
         static var previews: some View {
-            Group {
-                AddPlants( coreDM: CoreDataManager())
-                AddPlants( coreDM: CoreDataManager())
-                    .preferredColorScheme(.dark)
-            }
-            .previewLayout(.sizeThatFits)
+            AddPlants(coreDM: CoreDataManager())
         }
     }
