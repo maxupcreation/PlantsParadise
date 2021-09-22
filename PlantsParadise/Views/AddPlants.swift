@@ -100,10 +100,11 @@ struct AddPlants: View {
                 }
                 Spacer()
                 Button("Ajouter cette plante") {
-                    action: do {
-                        coreDM.savePlants(name: plantName, img: selectedImage ?? UIImage(), remember: Double(day))
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                    isPresented.toggle()
+                    // self.presentationMode.wrappedValue.dismiss()
+                    
+                }.sheet(isPresented: self.$isPresented) {
+                    PlantDetails(flowerName: plantName, reminderDays: String(day), imageName: (selectedImage ?? UIImage(named: "Flower_Example")) ?? UIImage(), coreDM: CoreDataManager())
                 }
                 .font(Font.system(size: 30))
                 .frame(width: 300, height: 40, alignment: .center)
