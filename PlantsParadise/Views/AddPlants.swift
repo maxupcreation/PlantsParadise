@@ -105,10 +105,14 @@ struct AddPlants: View {
                 Spacer()
                 Button("Ajouter cette plante") {
                     isPresented.toggle()
-                    // self.presentationMode.wrappedValue.dismiss()
+                action: do {
+                    coreDM.savePlants(name: plantName, img: (selectedImage ?? UIImage(named: "icons8-no_image")) ?? UIImage(), remember: Double(day))
+                    let plants = coreDM.getAllPlants()
+                    let plant = DataPlant(name: plants.last?.name ?? "No name")
+                    print(plant)
                     
-                }.sheet(isPresented: self.$isPresented) {
-                    PlantDetails(flowerName: plantName, reminderDays: String(day), imageName: (selectedImage ?? UIImage(named: "Flower_Example")) ?? UIImage(), coreDM: CoreDataManager())
+                    self.presentationMode.wrappedValue.dismiss()
+                }
                 }
                 .font(Font.system(size: 30))
                 .frame(width: 300, height: 40, alignment: .center)
