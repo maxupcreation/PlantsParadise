@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+struct DataPlant {
+    let name: String
+}
+
 struct AddPlants: View {
     
     //For dissmiss View
@@ -114,11 +118,9 @@ struct AddPlants: View {
                 .clipShape(Capsule(style: .circular))
                 Spacer(minLength: 130)
             }
-            
         }
     }
 }
-    
     
     struct AddPlantsSwiftUIView_Previews: PreviewProvider {
         static var previews: some View {
