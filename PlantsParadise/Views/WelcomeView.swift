@@ -71,6 +71,7 @@ struct WelcomeView: View {
         }
         .onAppear {
             plants = coreDM.getAllPlants()
+            print(plants.last?.name as Any)
         }
     }
 
