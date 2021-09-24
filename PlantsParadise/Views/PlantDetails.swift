@@ -13,16 +13,12 @@ struct PlantDetails: View {
     
     let flowerName: String
     let reminderDays: String
-    let imageName: UIImage
+    let plantImage: UIImage
     let gradientColor = GradientColor()
-    
-    let coreDM: CoreDataManager
-    
+
     var body: some View {
-        
-        VStack {
             HStack(spacing: 30) {
-                Image(uiImage: imageName)
+                Image(uiImage: plantImage)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .aspectRatio(contentMode: .fit)
