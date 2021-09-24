@@ -22,10 +22,8 @@ struct WelcomeView: View {
                     ForEach(plants, id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
-                        HStack {
-                            Image(uiImage: (UIImage(data: item.picture ?? Data()) ?? noImage))
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                        HStack(spacing: 30) {
+                            PlantDetails(flowerName: item.name ?? "no data", reminderDays: amountDays, plantImage: UIImage(data: item.picture ?? Data()) ?? noImage)
                                 
                                 .frame(width: 70, height: 70, alignment: .center)
                                 .cornerRadius(20)
@@ -78,6 +76,7 @@ struct WelcomeView: View {
     struct WelcomeView_Previews: PreviewProvider {
         static var previews: some View {
             WelcomeView(coreDM: CoreDataManager())
+            
         }
     }
 }
