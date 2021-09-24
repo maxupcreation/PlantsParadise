@@ -22,19 +22,12 @@ struct WelcomeView: View {
                     ForEach(plants, id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
-                        HStack(spacing: 30) {
-                            PlantDetails(flowerName: item.name ?? "no data", reminderDays: amountDays, plantImage: UIImage(data: item.picture ?? Data()) ?? noImage)
+                        HStack(spacing: 50) {
+                            PlantDetails(flowerName: item.name ?? "no data", reminderDays: amountDays, plantImage: UIImage(data: item.picture ?? Data()) ?? noImage, tagText: "Enter your tags")
                                 
-                                .frame(width: 70, height: 70, alignment: .center)
-                                .cornerRadius(20)
-                            Spacer()
-                            Text(item.name ?? "no data")
-                            Spacer()
-                            Text("\(amountDays) jours")
                         }
                     }
                 }
-                .cornerRadius(8)
                 
                 VStack {
                     Button("Ajouter une plante") {
