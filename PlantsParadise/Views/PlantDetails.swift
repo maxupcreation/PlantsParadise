@@ -39,24 +39,7 @@ struct PlantDetails: View {
                     .foregroundColor(.white)
                     .clipShape(Capsule(style: .circular))
             }
-            Spacer()
-            
-            VStack {
-                Button("Ajouter cette plante") {
-                action: do {
-                    coreDM.savePlants(name: flowerName, img: imageName, remember: Double(reminderDays)!)
-                    self.presentationMode.wrappedValue.dismiss()
-                    
-                }
-                }
-                .font(Font.system(size: 30))
-                .frame(width: 300, height: 40)
-                .padding()
-                .background(gradientColor.linearGradientPink())
-                .foregroundColor(.white)
-                .clipShape(Capsule(style: .circular))
-            }
-        }
+        
     }
 }
 
