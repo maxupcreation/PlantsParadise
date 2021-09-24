@@ -24,9 +24,15 @@ struct PlantDetails: View {
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                 
+                if flowerName == "" {
+                    Text("Pas de nom")
+                        .font(Font.custom("Didot", size: 22))
+                        .foregroundColor(.black)
+                } else {
                 Text(flowerName)
                     .font(Font.custom("Didot", size: 22))
                     .foregroundColor(.black)
+                }
                 Text(reminderDays)
                     .frame(width: 50, height: 50)
                     .background(gradientColor.linearGradientBlue())
