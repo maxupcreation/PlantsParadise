@@ -58,7 +58,6 @@ class CoreDataManager {
         } catch {
             print("Failed to save movie \(error)")
         }
-        
     }
     
 }

@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct WelcomeView: View {
+
+    
     let coreDM: CoreDataManager
     
     @State private var isPresentedBool = false
     @State private var plants: [Plants] = [Plants]()
     let gradientColor = GradientColor()
+    var daysForNotification = 0
+    
+    
+     func notificationInitialization(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("successfully initialized")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+     func scheduleNotification(){
+        let content = UNMutableNotificationContent()
+        content.title = "Local Notification"
+        content.subtitle = "Notification received"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
+    
     
     var body: some View {
+        
+        
         
         NavigationView {
             VStack {
@@ -22,16 +49,16 @@ struct WelcomeView: View {
                     ForEach(plants, id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
+                 
                         HStack(spacing: 50) {
                             PlantDetails(flowerName: item.name ?? "no data", reminderDays: amountDays, plantImage: UIImage(data: item.picture ?? Data()) ?? noImage, tagText: "Enter your tags")
-                                
-                        }
+                       }
                     }
                 }
-                
                 VStack {
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
+                        self.scheduleNotification()
                     }
                     .font(Font.system(size: 30))
                     .frame(width: 300, height: 40, alignment: .center)
@@ -56,6 +83,8 @@ struct WelcomeView: View {
                 .navigationBarHidden(false)
             }
             .padding()
+            
+            
         }
         .sheet(isPresented: $isPresentedBool) {
             AddPlants(coreDM: CoreDataManager())
@@ -63,7 +92,10 @@ struct WelcomeView: View {
         .onAppear {
             plants = coreDM.getAllPlants()
             print(plants.last?.name as Any)
+            self.notificationInitialization()
         }
+        
+        
     }
 
     struct WelcomeView_Previews: PreviewProvider {
