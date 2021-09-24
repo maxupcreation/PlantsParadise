@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-struct DataPlant {
-    let name: String
-}
-
 struct AddPlants: View {
     
     //For dissmiss View
@@ -107,9 +103,6 @@ struct AddPlants: View {
                     isPresented.toggle()
                 action: do {
                     coreDM.savePlants(name: plantName, img: (selectedImage ?? UIImage(named: "icons8-no_image")) ?? UIImage(), remember: Double(day))
-                    let plants = coreDM.getAllPlants()
-                    let plant = DataPlant(name: plants.last?.name ?? "No name")
-                    print(plant)
                     
                     self.presentationMode.wrappedValue.dismiss()
                 }
