@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-
+    
     
     let coreDM: CoreDataManager
     
@@ -17,44 +17,20 @@ struct WelcomeView: View {
     let gradientColor = GradientColor()
     var daysForNotification = 0
     
-    
-     func notificationInitialization(){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("successfully initialized")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-     func scheduleNotification(){
-        let content = UNMutableNotificationContent()
-        content.title = "Local Notification"
-        content.subtitle = "Notification received"
-        content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    
     var body: some View {
-        
-        
-        
         NavigationView {
             VStack {
                 List {
-                    ForEach(plants, id:\.self) { item in
+                    ForEach(coreDM.getAllPlants(), id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
-                 
+                        
                         HStack(spacing: 50) {
                             PlantDetails(flowerName: item.name ?? "no data", reminderDays: amountDays, plantImage: UIImage(data: item.picture ?? Data()) ?? noImage, tagText: "Enter your tags")
-                       }
+                        }
                     }
                 }
+                
                 VStack {
                     Button("Ajouter une plante") {
                         isPresentedBool.toggle()
@@ -71,15 +47,16 @@ struct WelcomeView: View {
                 }
                 .navigationBarItems(leading:
                                         HStack {
-                                            Image("logoAlt")
-                                                .resizable()
-                                                .frame(width: 40, height: 65)
-                                                .navigationBarTitleDisplayMode(.inline)
-
-                                            Text(" Plants Paradise")
-                                                .font(Font.custom("Didot", size: 37))
-                                                .padding()
-                                        })
+                    Image("logoAlt")
+                        .resizable()
+                        .frame(width: 40, height: 65)
+                        .navigationBarTitleDisplayMode(.inline)
+                    
+                    Text(" Plants Paradise")
+                        .font(Font.custom("Didot", size: 37))
+                        .padding()
+                }
+                )
                 .navigationBarHidden(false)
             }
             .padding()
@@ -92,16 +69,38 @@ struct WelcomeView: View {
         .onAppear {
             plants = coreDM.getAllPlants()
             print(plants.last?.name as Any)
+            
             self.notificationInitialization()
         }
-        
-        
     }
-
-    struct WelcomeView_Previews: PreviewProvider {
-        static var previews: some View {
-            WelcomeView(coreDM: CoreDataManager())
-            
+    
+    // MARK: - Notifications
+    
+    func notificationInitialization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("successfully initialized")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
         }
     }
+    
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Local Notification"
+        content.subtitle = "Notification received"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
 }
+
+struct WelcomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        WelcomeView(coreDM: CoreDataManager())
+        
+    }
+}
+
