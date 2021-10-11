@@ -21,7 +21,7 @@ struct WelcomeView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(plants, id:\.self) { item in
+                    ForEach(coreDM.getAllPlants(), id:\.self) { item in
                         let amountDays = String(Int(item.reminder))
                         let noImage = UIImage(named: "icons8-no_image")!
                         
