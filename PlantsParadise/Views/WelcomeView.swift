@@ -18,25 +18,7 @@ struct WelcomeView: View {
     var daysForNotification = 0
     
     
-     func notificationInitialization(){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("successfully initialized")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-     func scheduleNotification(){
-        let content = UNMutableNotificationContent()
-        content.title = "Local Notification"
-        content.subtitle = "Notification received"
-        content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
-    }
+     
     
     
     var body: some View {
@@ -94,8 +76,27 @@ struct WelcomeView: View {
             print(plants.last?.name as Any)
             self.notificationInitialization()
         }
-        
-        
+    
+    
+    func notificationInitialization(){
+       UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+           if success {
+               print("successfully initialized")
+           } else if let error = error {
+               print(error.localizedDescription)
+           }
+       }
+   }
+   
+    func scheduleNotification(){
+       let content = UNMutableNotificationContent()
+       content.title = "Local Notification"
+       content.subtitle = "Notification received"
+       content.sound = UNNotificationSound.default
+       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+       UNUserNotificationCenter.current().add(request)
+   }
     }
 
     struct WelcomeView_Previews: PreviewProvider {
