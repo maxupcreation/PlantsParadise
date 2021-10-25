@@ -10,6 +10,7 @@
 		7B1F048E26F9EA53004BFB96 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F048D26F9EA53004BFB96 /* PlantDetails.swift */; };
 		7B8E73B726F1F1960090EBEC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E73B626F1F1960090EBEC /* WelcomeView.swift */; };
 		7B9ABE5426F046AA00438608 /* Constant+GradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9ABE5326F046AA00438608 /* Constant+GradientColor.swift */; };
+		7BA1030427269A91007533C5 /* ModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1030327269A91007533C5 /* ModifierView.swift */; };
 		9C185E8126E75FAE00B80512 /* AddPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8026E75FAE00B80512 /* AddPlants.swift */; };
 		9C185E8326E78AAF00B80512 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8226E78AAF00B80512 /* ImagePickerView.swift */; };
 		9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C185E8426E78C0200B80512 /* Coordinator.swift */; };
@@ -45,6 +46,7 @@
 		7B1F048D26F9EA53004BFB96 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		7B8E73B626F1F1960090EBEC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		7B9ABE5326F046AA00438608 /* Constant+GradientColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+GradientColor.swift"; sourceTree = "<group>"; };
+		7BA1030327269A91007533C5 /* ModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierView.swift; sourceTree = "<group>"; };
 		9C185E8026E75FAE00B80512 /* AddPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlants.swift; sourceTree = "<group>"; };
 		9C185E8226E78AAF00B80512 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		9C185E8426E78C0200B80512 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				7B8E73B626F1F1960090EBEC /* WelcomeView.swift */,
 				9C185E8026E75FAE00B80512 /* AddPlants.swift */,
 				7B1F048D26F9EA53004BFB96 /* PlantDetails.swift */,
+				7BA1030327269A91007533C5 /* ModifierView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				9CC776DA26F4930A0010C761 /* CoreDataStack.swift in Sources */,
 				7B8E73B726F1F1960090EBEC /* WelcomeView.swift in Sources */,
 				9CC776D826F4926B0010C761 /* CoreDataManager.swift in Sources */,
+				7BA1030427269A91007533C5 /* ModifierView.swift in Sources */,
 				9C82539926E246C4006BAC0A /* PlantsParadiseApp.swift in Sources */,
 				9C185E8526E78C0200B80512 /* Coordinator.swift in Sources */,
 				7B1F048E26F9EA53004BFB96 /* PlantDetails.swift in Sources */,
