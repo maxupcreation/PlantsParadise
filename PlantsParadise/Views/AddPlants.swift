@@ -7,6 +7,40 @@
 
 import SwiftUI
 
+struct ButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.system(size: 50))
+            .frame(width: 30, height: 70)
+            .foregroundColor(Color.white)
+            .padding()
+            .background(GradientColor().linearGradientPink())
+            .clipShape(Capsule(style: .circular))
+            .padding()
+    }
+}
+
+extension View {
+    func buttonStyle() -> some View {
+        modifier(ButtonModifier())
+    }
+    
+    func largeButton() -> some View {
+        modifier(LargeButtonModifier())
+    }
+}
+
+struct LargeButtonModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .font(Font.system(size: 35))
+            .frame(width: 325, height: 65, alignment: .center)
+            .foregroundColor(.white)
+            
+    }
+}
+
 struct AddPlants: View {
     
     //For dissmiss View
@@ -48,10 +82,8 @@ struct AddPlants: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }
-                .frame(width: 325, height: 65, alignment: .center)
-                .font(Font.system(size: 35))
-                .foregroundColor(.white)
-                .background(gradientColor.linearGradientBlue())
+                .largeButton()
+                .background(GradientColor().linearGradientBlue())
                 .clipShape(Capsule(style: .circular))
                 
                 ///-----------------------
@@ -70,13 +102,7 @@ struct AddPlants: View {
                         guard day > 1 else { return }
                         day -= 1
                     }
-                    .font(Font.system(size: 50))
-                    .frame(width: 30, height: 70)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .background(gradientColor.linearGradientPink())
-                    .clipShape(Capsule(style: .circular))
-                    .padding()
+                    .buttonStyle()
                     
                     ///------------------------
                     VStack {
@@ -89,14 +115,7 @@ struct AddPlants: View {
                     Button("+") {
                         day += 1
                     }
-                    
-                    .font(Font.system(size: 50))
-                    .frame(width: 30, height: 70)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .background(gradientColor.linearGradientPink())
-                    .clipShape(Capsule(style: .circular))
-                    .padding()
+                    .buttonStyle()
                 }
                 Spacer()
                 Button("Ajouter cette plante") {
@@ -107,20 +126,20 @@ struct AddPlants: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 }
-                .font(Font.system(size: 30))
-                .frame(width: 300, height: 40, alignment: .center)
-                .padding()
-                .background(gradientColor.linearGradientPink())
-                .foregroundColor(.white)
+                .largeButton() 
+                .background(GradientColor().linearGradientPink())
                 .clipShape(Capsule(style: .circular))
+                
+                
+                
                 Spacer(minLength: 130)
             }
         }
     }
 }
-    
-    struct AddPlantsSwiftUIView_Previews: PreviewProvider {
-        static var previews: some View {
-            AddPlants(coreDM: CoreDataManager())
-        }
+
+struct AddPlantsSwiftUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddPlants(coreDM: CoreDataManager())
     }
+}

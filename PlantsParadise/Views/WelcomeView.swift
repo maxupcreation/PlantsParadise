@@ -77,7 +77,7 @@ struct WelcomeView: View {
             self.notificationInitialization()
         }
     
-    
+    }
     func notificationInitialization(){
        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
            if success {
@@ -96,7 +96,7 @@ struct WelcomeView: View {
        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
        UNUserNotificationCenter.current().add(request)
-   }
+   
     }
 
     struct WelcomeView_Previews: PreviewProvider {
