@@ -14,8 +14,6 @@ struct ButtonModifier: ViewModifier {
             .frame(width: 30, height: 70)
             .foregroundColor(Color.white)
             .padding()
-            .background(GradientColor().linearGradientPink())
-            .clipShape(Capsule(style: .circular))
             .padding()
     }
 }
@@ -37,6 +35,5 @@ struct LargeButtonModifier: ViewModifier {
             .font(Font.system(size: 35))
             .frame(width: 325, height: 65, alignment: .center)
             .foregroundColor(.white)
-            
     }
 }

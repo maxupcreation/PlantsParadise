@@ -12,6 +12,7 @@ struct ContentView: View {
     
     init() {
         UITableView.appearance().backgroundColor = .white
+      
     }
     var body: some View {
         WelcomeView(coreDM: CoreDataManager())

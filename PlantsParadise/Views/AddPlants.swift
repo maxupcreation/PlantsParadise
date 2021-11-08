@@ -49,14 +49,12 @@ struct AddPlants: View {
                     self.isImagePickerDisplay.toggle()
                 }
                 .largeButton()
-                .background(GradientColor().linearGradientBlue())
-                .clipShape(Capsule(style: .circular))
-                
+                .cornerRadius(8)
                 ///-----------------------
                 TextField("Nom de la plante", text: $plantName)
                     .padding(20)
                     .background(Color(Constant.Color.ligthGray))
-                    .cornerRadius(100)
+                    .cornerRadius(20)
                     .padding(20)
                 ///----------------------
                 Text("Rappel arrosage")
@@ -69,7 +67,7 @@ struct AddPlants: View {
                         day -= 1
                     }
                     .buttonStyle()
-                    
+          
                     ///------------------------
                     VStack {
                         Text("\(day)")
@@ -82,6 +80,7 @@ struct AddPlants: View {
                         day += 1
                     }
                     .buttonStyle()
+
                 }
                 Spacer()
                 Button("Ajouter cette plante") {
@@ -92,20 +91,25 @@ struct AddPlants: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 }
-                .largeButton() 
-                .background(GradientColor().linearGradientPink())
-                .clipShape(Capsule(style: .circular))
+                .largeButton()
+                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("blue")/*@END_MENU_TOKEN@*/)
                 
                 
                 
                 Spacer(minLength: 130)
             }
+            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("black")/*@END_MENU_TOKEN@*/)
+          
         }
+   
+        
+      
     }
 }
 
 struct AddPlantsSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         AddPlants(coreDM: CoreDataManager())
+            
     }
 }

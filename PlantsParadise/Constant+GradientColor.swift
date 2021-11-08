@@ -22,7 +22,9 @@ struct Constant {
         static let ligthGray = UIColor(named: "ligthGray") ?? UIColor.black
         static let ligthPink = UIColor(named: "ligthPink") ?? UIColor.black
         static let altBlue = UIColor(named: "altBlue") ?? UIColor.black
-        
+        static let blue = UIColor(named: "blue") ?? UIColor.black
+        static let black = UIColor(named: "black") ?? UIColor.black
+        static let grey = UIColor(named: "grey") ?? UIColor.black
     }
 }
 
